@@ -33,9 +33,19 @@ export const SdGlobalHeader = ({ showLeftMenu = true }: sd_GlobalHeaderProps): J
 
   const [sd_isMobileMenuOpen, sd_setIsMobileMenuOpen] = useState(false);
 
+  useEffect(() => {
+    if (sd_isMobileMenuOpen) {
+      gsap.fromTo(
+        ".sd-global-header__menu-item",
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.5, stagger: 0.1, ease: "power3.out", delay: 0.2 }
+      );
+    }
+  }, [sd_isMobileMenuOpen]);
+
   return (
     <>
-      <header className="sd-global-header" aria-label="Основная шапка">
+      <header className={sd_isMobileMenuOpen ? "sd-global-header sd-global-header--menu-open" : "sd-global-header"} aria-label="Основная шапка">
         {showLeftMenu && (
           <>
             <button
@@ -63,13 +73,16 @@ export const SdGlobalHeader = ({ showLeftMenu = true }: sd_GlobalHeaderProps): J
                 aria-label="Закрыть меню"
                 onClick={() => sd_setIsMobileMenuOpen(false)}
               >
-                &times;
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
               </button>
               {sd_menuItems.map((sd_item) => (
                 <a
                   key={sd_item.href}
                   href={sd_item.href}
                   onClick={() => sd_setIsMobileMenuOpen(false)}
+                  style={{ opacity: 0 }}
                   className={
                     sd_activePath === sd_item.href
                       ? "sd-global-header__menu-item sd-global-header__menu-item--active"
