@@ -120,13 +120,13 @@ export const SdHeroSection = ({ onCheckoutOpen }: sd_HeroSectionProps): JSX.Elem
   }, [sd_isMobileMenuOpen]);
 
   return (
-    <section className="sd-hero" aria-label="Главный экран HUSH">
-      <div className="sd-hero__background-glow" aria-hidden="true" />
+    <section className="sd_hero" aria-label="Главный экран HUSH">
+      <div className="sd_hero__background_glow" aria-hidden="true" />
 
-      <header className={sd_isMobileMenuOpen ? "sd_hero__topbar sd_hero__topbar--menu-open" : "sd_hero__topbar"}>
+      <header className={sd_isMobileMenuOpen ? "sd_hero__topbar sd_hero__topbar--menu_open" : "sd_hero__topbar"}>
         {/* Бургер для мобилок */}
         <button
-          className="sd-hero__burger"
+          className="sd_hero__burger"
           type="button"
           aria-label="Открыть меню"
           aria-expanded={sd_isMobileMenuOpen}
@@ -136,9 +136,9 @@ export const SdHeroSection = ({ onCheckoutOpen }: sd_HeroSectionProps): JSX.Elem
           <span />
         </button>
 
-        <nav className={sd_isMobileMenuOpen ? "sd-hero__menu sd-hero__menu--open" : "sd-hero__menu"}>
+        <nav className={sd_isMobileMenuOpen ? "sd_hero__menu sd_hero__menu--open" : "sd_hero__menu"}>
           <button
-            className="sd-hero__menu-close"
+            className="sd_hero__menu_close"
             type="button"
             aria-label="Закрыть меню"
             onClick={() => sd_setIsMobileMenuOpen(false)}
@@ -149,13 +149,13 @@ export const SdHeroSection = ({ onCheckoutOpen }: sd_HeroSectionProps): JSX.Elem
           </button>
           {sd_menuItems.map((sd_item) => (
             <a 
-              className="sd-hero__menu-item" 
+              className="sd_hero__menu_item" 
               href={sd_item.href} 
               key={sd_item.label} 
               onClick={() => sd_setIsMobileMenuOpen(false)}
-              style={{ opacity: 0 }} // Начальное состояние для GSAP
+              style={{ opacity: 0 }}
             >
-              <span className="sd-hero__menu-label">{sd_item.label}</span>
+              <span className="sd_hero__menu_label">{sd_item.label}</span>
             </a>
           ))}
         </nav>
