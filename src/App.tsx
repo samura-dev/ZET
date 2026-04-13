@@ -1,3 +1,4 @@
+// Rebuild trigger: sync sd_ classes across all components
 import { useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
