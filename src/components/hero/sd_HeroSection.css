@@ -207,9 +207,12 @@
 	gap: 12px;
 	padding: 10px 18px 10px 14px;
 	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
 	transform: translateY(-8px) scale(0.98);
 	transition:
 		opacity 260ms ease,
+		visibility 260ms ease,
 		transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
 	background: rgb(253 243 248 / 46%);
 	border: 1px solid rgb(255 255 255 / 34%);
@@ -221,6 +224,8 @@
 
 .sd-hero__search-overlay--open .sd-hero__search-panel {
 	opacity: 1;
+	visibility: visible;
+	pointer-events: auto;
 	transform: translateY(0) scale(1);
 }
 
@@ -419,9 +424,12 @@
 	border-radius: 26px;
 	padding: 18px;
 	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
 	transform: translateY(-10px) scale(0.985);
 	transition:
 		opacity 260ms ease,
+		visibility 260ms ease,
 		transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
 	background: rgb(253 243 248 / 82%);
 	border: 1px solid rgb(255 255 255 / 42%);
@@ -432,6 +440,8 @@
 
 .sd-hero__cart-overlay--open .sd-hero__cart-panel {
 	opacity: 1;
+	visibility: visible;
+	pointer-events: auto;
 	transform: translateY(0) scale(1);
 }
 

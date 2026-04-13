@@ -187,8 +187,10 @@
   gap: 12px;
   padding: 10px 18px 10px 14px;
   opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
   transform: translateY(-8px) scale(0.98);
-  transition: opacity 260ms ease, transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 260ms ease, visibility 260ms ease, transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
   background: rgb(253 243 248 / 46%);
   border: 1px solid rgb(255 255 255 / 34%);
   box-shadow: 0 14px 32px rgb(153 91 118 / 18%);
@@ -199,6 +201,8 @@
 
 .sd-global-header__search-overlay--open .sd-global-header__search-panel {
   opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
   transform: translateY(0) scale(1);
 }
 
