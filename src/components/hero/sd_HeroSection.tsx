@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { SdHeroBagViewer } from "./sd_HeroBagViewer";
 import { sd_useCartStore } from "../../store/sd_useCartStore";
 import sd_productsData from "../../data/sd_products.json";
+import gsap from "gsap";
 import "./sd_HeroSection.css";
 
 const sd_MARQUEE_TEXT = "FUTURISM IN EVERY FOLD";
@@ -21,8 +22,6 @@ const sd_menuItems: Array<{ label: string; href: string }> = [
   { label: "отзывы", href: "/reviews" },
   { label: "контакты", href: "/contacts" }
 ];
-
-// Удалены локальные заглушки
 
 const sd_currencyFormatter = new Intl.NumberFormat("ru-RU");
 
@@ -112,7 +111,7 @@ export const SdHeroSection = ({ onCheckoutOpen }: sd_HeroSectionProps): JSX.Elem
   useEffect(() => {
     if (sd_isMobileMenuOpen) {
       gsap.fromTo(
-        ".sd-hero__menu-item",
+        ".sd_hero__menu_item",
         { y: 30, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.5, stagger: 0.1, ease: "power3.out", delay: 0.2 }
       );
@@ -124,7 +123,6 @@ export const SdHeroSection = ({ onCheckoutOpen }: sd_HeroSectionProps): JSX.Elem
       <div className="sd_hero__background_glow" aria-hidden="true" />
 
       <header className={sd_isMobileMenuOpen ? "sd_hero__topbar sd_hero__topbar--menu_open" : "sd_hero__topbar"}>
-        {/* Бургер для мобилок */}
         <button
           className="sd_hero__burger"
           type="button"
@@ -160,23 +158,22 @@ export const SdHeroSection = ({ onCheckoutOpen }: sd_HeroSectionProps): JSX.Elem
           ))}
         </nav>
 
-        <div className="sd-hero__brand">
-          <p className="sd-hero__brand-label">ZET</p>
+        <div className="sd_hero__brand">
+          <p className="sd_hero__brand_label">ZET</p>
         </div>
 
-        <div className="sd-hero__tools">
+        <div className="sd_hero__tools">
           <button
-            className="sd-hero__tool-button"
+            className="sd_hero__tool_button"
             type="button"
             aria-label="Поиск"
             aria-expanded={sd_isSearchOpen}
-            aria-controls="sd-hero-search-panel"
             onClick={() => {
               sd_setIsSearchOpen((sd_prev) => !sd_prev);
               sd_setIsCartOpen(false);
             }}
           >
-            <span className="sd-hero__search-icon" aria-hidden>
+            <span className="sd_hero__search_icon" aria-hidden>
               <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" strokeWidth="1.9" />
                 <path
@@ -190,17 +187,16 @@ export const SdHeroSection = ({ onCheckoutOpen }: sd_HeroSectionProps): JSX.Elem
           </button>
 
           <button
-            className="sd-hero__tool-button sd-hero__tool-button--cart"
+            className="sd_hero__tool_button sd_hero__tool_button--cart"
             type="button"
             aria-label="Корзина"
             aria-expanded={sd_isCartOpen}
-            aria-controls="sd-hero-cart-panel"
             onClick={() => {
               sd_setIsCartOpen((sd_prev) => !sd_prev);
               sd_setIsSearchOpen(false);
             }}
           >
-            <span className="sd-hero__cart-icon" aria-hidden>
+            <span className="sd_hero__cart_icon" aria-hidden>
               <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M3.2 4H6L7.6 13.2C7.8 14.3 8.8 15.1 9.9 15.1H18.3C19.4 15.1 20.4 14.3 20.6 13.2L21.5 8H7.1"
@@ -214,34 +210,29 @@ export const SdHeroSection = ({ onCheckoutOpen }: sd_HeroSectionProps): JSX.Elem
               </svg>
             </span>
             {sd_totalQuantity > 0 ? (
-              <span className="sd-hero__cart-badge">{sd_totalQuantity}</span>
+              <span className="sd_hero__cart_badge">{sd_totalQuantity}</span>
             ) : null}
           </button>
         </div>
       </header>
 
       <div
-        id="sd-hero-search-panel"
         className={
           sd_isSearchOpen
-            ? "sd-hero__search-overlay sd-hero__search-overlay--open"
-            : "sd-hero__search-overlay"
+            ? "sd_hero__search_overlay sd_hero__search_overlay--open"
+            : "sd_hero__search_overlay"
         }
-        aria-hidden={!sd_isSearchOpen}
         onClick={() => {
           sd_setIsSearchOpen(false);
         }}
       >
         <div
-          className="sd-hero__search-panel"
-          role="dialog"
-          aria-modal="false"
-          aria-label="Поиск по каталогу"
+          className="sd_hero__search_panel"
           onClick={(sd_event) => {
             sd_event.stopPropagation();
           }}
         >
-          <span className="sd-hero__search-panel-icon" aria-hidden>
+          <span className="sd_hero__search_panel_icon" aria-hidden>
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" strokeWidth="1.9" />
               <path
@@ -254,7 +245,7 @@ export const SdHeroSection = ({ onCheckoutOpen }: sd_HeroSectionProps): JSX.Elem
           </span>
           <input
             ref={sd_searchInputRef}
-            className="sd-hero__search-input"
+            className="sd_hero__search_input"
             type="text"
             placeholder="Найти сумку..."
             value={sd_searchQuery}
@@ -263,9 +254,8 @@ export const SdHeroSection = ({ onCheckoutOpen }: sd_HeroSectionProps): JSX.Elem
             }}
           />
           <button
-            className="sd-hero__search-close"
+            className="sd_hero__search_close"
             type="button"
-            aria-label="Закрыть поиск"
             onClick={() => {
               sd_setIsSearchOpen(false);
               sd_setSearchQuery("");
@@ -275,17 +265,17 @@ export const SdHeroSection = ({ onCheckoutOpen }: sd_HeroSectionProps): JSX.Elem
           </button>
 
           {sd_searchResults.length > 0 && (
-            <div className="sd-hero__search-results">
+            <div className="sd_hero__search_results">
               {sd_searchResults.map((sd_result) => (
                 <a
                   key={sd_result.id}
                   href={`/product/${sd_result.id}`}
-                  className="sd-hero__search-result-item"
+                  className="sd_hero__search_result_item"
                 >
                   <img src={sd_result.images[0]} alt="" />
-                  <div className="sd-hero__search-result-info">
-                    <p className="sd-hero__search-result-name">{sd_result.title}</p>
-                    <p className="sd-hero__search-result-price">
+                  <div className="sd_hero__search_result_info">
+                    <p className="sd_hero__search_result_name">{sd_result.title}</p>
+                    <p className="sd_hero__search_result_price">
                       {sd_currencyFormatter.format(sd_result.price)} ₽
                     </p>
                   </div>
@@ -295,7 +285,7 @@ export const SdHeroSection = ({ onCheckoutOpen }: sd_HeroSectionProps): JSX.Elem
           )}
 
           {sd_searchQuery.trim().length >= 2 && sd_searchResults.length === 0 && (
-            <div className="sd-hero__search-no-results">
+            <div className="sd_hero__search_no_results">
               ничего не найдено
             </div>
           )}
@@ -303,32 +293,26 @@ export const SdHeroSection = ({ onCheckoutOpen }: sd_HeroSectionProps): JSX.Elem
       </div>
 
       <div
-        id="sd-hero-cart-panel"
         className={
           sd_isCartOpen
-            ? "sd-hero__cart-overlay sd-hero__cart-overlay--open"
-            : "sd-hero__cart-overlay"
+            ? "sd_hero__cart_overlay sd_hero__cart_overlay--open"
+            : "sd_hero__cart_overlay"
         }
-        aria-hidden={!sd_isCartOpen}
         onClick={() => {
           sd_setIsCartOpen(false);
         }}
       >
         <aside
-          className="sd-hero__cart-panel"
-          role="dialog"
-          aria-modal="false"
-          aria-label="Корзина"
+          className="sd_hero__cart_panel"
           onClick={(sd_event) => {
             sd_event.stopPropagation();
           }}
         >
-          <div className="sd-hero__cart-head">
-            <h3 className="sd-hero__cart-title">корзина</h3>
+          <div className="sd_hero__cart_head">
+            <h3 className="sd_hero__cart_title">корзина</h3>
             <button
-              className="sd-hero__cart-close"
+              className="sd_hero__cart_close"
               type="button"
-              aria-label="Закрыть корзину"
               onClick={() => {
                 sd_setIsCartOpen(false);
               }}
@@ -337,50 +321,46 @@ export const SdHeroSection = ({ onCheckoutOpen }: sd_HeroSectionProps): JSX.Elem
             </button>
           </div>
 
-          <div className="sd-hero__cart-list">
+          <div className="sd_hero__cart_list">
             {sd_cartItems.length === 0 ? (
-              <p className="sd-hero__cart-empty">в корзине пока пусто</p>
+              <p className="sd_hero__cart_empty">в корзине пока пусто</p>
             ) : (
               sd_cartItems.map((sd_item) => (
                 <article
                   className={
                     sd_removingItemIds.includes(sd_item.id)
-                      ? "sd-hero__cart-item sd-hero__cart-item--removing"
-                      : "sd-hero__cart-item"
+                      ? "sd_hero__cart_item sd_hero__cart_item--removing"
+                      : "sd_hero__cart_item"
                   }
                   key={sd_item.id}
                 >
                   <img
-                    className="sd-hero__cart-item-image"
+                    className="sd_hero__cart_item_image"
                     src={sd_item.images[0]}
                     alt={`Сумка ${sd_item.title}`}
-                    loading="lazy"
-                    decoding="async"
                   />
 
-                  <div className="sd-hero__cart-item-content">
-                    <p className="sd-hero__cart-item-title">{sd_item.title}</p>
-                    <p className="sd-hero__cart-item-price">
+                  <div className="sd_hero__cart_item_content">
+                    <p className="sd_hero__cart_item_title">{sd_item.title}</p>
+                    <p className="sd_hero__cart_item_price">
                       {sd_currencyFormatter.format(sd_item.price)} ₽
                     </p>
 
-                    <div className="sd-hero__cart-item-actions">
-                      <div className="sd-hero__qty-control" aria-label="Количество товара">
+                    <div className="sd_hero__cart_item_actions">
+                      <div className="sd_hero__qty_control">
                         <button
-                          className="sd-hero__qty-btn"
+                          className="sd_hero__qty_btn"
                           type="button"
-                          aria-label="Уменьшить"
                           onClick={() => {
                             sd_handleQuantityChange(sd_item.id, -1);
                           }}
                         >
                           −
                         </button>
-                        <span className="sd-hero__qty-value">{sd_item.quantity}</span>
+                        <span className="sd_hero__qty_value">{sd_item.quantity}</span>
                         <button
-                          className="sd-hero__qty-btn"
+                          className="sd_hero__qty_btn"
                           type="button"
-                          aria-label="Увеличить"
                           onClick={() => {
                             sd_handleQuantityChange(sd_item.id, 1);
                           }}
@@ -390,7 +370,7 @@ export const SdHeroSection = ({ onCheckoutOpen }: sd_HeroSectionProps): JSX.Elem
                       </div>
 
                       <button
-                        className="sd-hero__cart-remove"
+                        className="sd_hero__cart_remove"
                         type="button"
                         disabled={sd_removingItemIds.includes(sd_item.id)}
                         onClick={() => {
@@ -406,13 +386,13 @@ export const SdHeroSection = ({ onCheckoutOpen }: sd_HeroSectionProps): JSX.Elem
             )}
           </div>
 
-          <div className="sd-hero__cart-footer">
-            <div className="sd-hero__cart-total-row">
+          <div className="sd_hero__cart_footer">
+            <div className="sd_hero__cart_total_row">
               <span>итого</span>
               <strong>{sd_currencyFormatter.format(sd_totalPrice)} ₽</strong>
             </div>
             <button
-              className="sd-hero__cart-checkout"
+              className="sd_hero__cart_checkout"
               type="button"
               onClick={() => {
                 sd_setIsCartOpen(false);
@@ -425,24 +405,24 @@ export const SdHeroSection = ({ onCheckoutOpen }: sd_HeroSectionProps): JSX.Elem
         </aside>
       </div>
 
-      <div className="sd-hero__marquee" aria-hidden>
-        <div className="sd-hero__marquee-track">
+      <div className="sd_hero__marquee" aria-hidden>
+        <div className="sd_hero__marquee_track">
           {sd_marqueeItems.map((sd_item, sd_index) => (
-            <span className="sd-hero__marquee-text" key={`sd_marquee_${sd_index}`}>
+            <span className="sd_hero__marquee_text" key={`sd_marquee_${sd_index}`}>
               {sd_item}
             </span>
           ))}
         </div>
-        <div className="sd-hero__marquee-track" aria-hidden>
+        <div className="sd_hero__marquee_track" aria-hidden>
           {sd_marqueeItems.map((sd_item, sd_index) => (
-            <span className="sd-hero__marquee-text" key={`sd_marquee_copy_${sd_index}`}>
+            <span className="sd_hero__marquee_text" key={`sd_marquee_copy_${sd_index}`}>
               {sd_item}
             </span>
           ))}
         </div>
       </div>
 
-      <div className="sd-hero__bag-container">
+      <div className="sd_hero__bag_container">
         <SdHeroBagViewer
           frameCount={240}
           durationMs={8000}
@@ -450,21 +430,21 @@ export const SdHeroSection = ({ onCheckoutOpen }: sd_HeroSectionProps): JSX.Elem
           framePrefix="ezgif-frame-"
           frameExtension="png"
           framePadLength={3}
-          className="sd-hero__bag-viewer"
+          className="sd_hero__bag_viewer"
         />
       </div>
 
-      <div className="sd-hero__info">
-        <p className="sd-hero__info-text">
+      <div className="sd_hero__info">
+        <p className="sd_hero__info_text">
           each hush brand bag is the perfect combination of creativity and practicality.
         </p>
-        <div className="sd-hero__actions">
-          <a className="sd-hero__button-main" href="/about">
-            <span className="sd-hero__button-main-text">узнать больше</span>
+        <div className="sd_hero__actions">
+          <a className="sd_hero__button_main" href="/about">
+            <span className="sd_hero__button_main_text">узнать больше</span>
           </a>
-          <button className="sd-hero__button-arrow" type="button" aria-label="Перейти">
+          <button className="sd_hero__button_arrow" type="button" aria-label="Перейти">
             <svg
-              className="sd-hero__button-arrow-icon"
+              className="sd_hero__button_arrow_icon"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
