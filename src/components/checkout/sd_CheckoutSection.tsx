@@ -1,11 +1,13 @@
-import React, { useState, useMemo } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 import { sd_useCartStore } from "../../store/sd_useCartStore";
 import "./sd_CheckoutSection.css";
 
-export const SdCheckoutSection = (): JSX.Element => {
-  const sd_navigate = useNavigate();
-  const { sd_items, sd_getTotalPrice, sd_removeItem, sd_updateQuantity, sd_clearCart } = sd_useCartStore();
+interface sd_CheckoutSectionProps {
+  onBackHome?: () => void;
+}
+
+export const SdCheckoutSection = ({ onBackHome }: sd_CheckoutSectionProps): JSX.Element => {
+  const { items: sd_items, sd_getTotalPrice, sd_removeItem, sd_updateQuantity, sd_clearCart } = sd_useCartStore();
   const [sd_isSubmitted, sd_setIsSubmitted] = useState(false);
   
   // Состояние формы
@@ -83,7 +85,7 @@ export const SdCheckoutSection = (): JSX.Element => {
           <p className="sd_checkout__lead">
             спасибо за доверие. наш менеджер скоро свяжется с вами для уточнения деталей.
           </p>
-          <button className="sd_checkout__success_button" onClick={() => sd_navigate("/")}>
+          <button className="sd_checkout__success_button" onClick={onBackHome}>
             вернуться на главную
           </button>
         </div>
@@ -104,7 +106,7 @@ export const SdCheckoutSection = (): JSX.Element => {
       </div>
 
       <div className="sd_checkout__topline">
-        <button className="sd_checkout__back" onClick={() => sd_navigate(-1)}>← назад</button>
+        <button className="sd_checkout__back" onClick={onBackHome}>← назад</button>
       </div>
 
       <header className="sd_checkout__header">
@@ -221,10 +223,10 @@ export const SdCheckoutSection = (): JSX.Element => {
             {sd_items.length === 0 ? (
               <div className="sd_checkout__empty">
                 <p>ваша корзина пуста</p>
-                <button onClick={() => sd_navigate("/")}>перейти к покупкам</button>
+                <button onClick={onBackHome}>перейти к покупкам</button>
               </div>
             ) : (
-              sd_items.map(sd_item => (
+              sd_items.map((sd_item: any) => (
                 <div key={sd_item.id} className="sd_checkout__order_item">
                   <img src={sd_item.images[0]} alt={sd_item.title} />
                   <div className="sd_checkout__order_item_content">
