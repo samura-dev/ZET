@@ -16,7 +16,7 @@
 			rgb(223 160 186 / 0%) 100%
 		),
 		linear-gradient(180deg, #f5f3f5 0%, var(--sd_bg) 100%);
-	padding: 26px var(--sd-page-gutter) 32px;
+	padding: 26px var(--sd_page_gutter) 32px;
 }
 
 .sd_hero__background_glow {
@@ -54,7 +54,7 @@
 	padding: 0;
 	position: fixed;
 	top: 20px;
-	left: var(--sd-page-gutter);
+	left: var(--sd_page_gutter);
 	flex-direction: column;
 	justify-content: center;
 	gap: 6px;
@@ -74,7 +74,7 @@
 .sd_hero__menu {
 	position: fixed;
 	top: 20px;
-	left: var(--sd-page-gutter);
+	left: var(--sd_page_gutter);
 	z-index: 2000;
 	display: flex;
 	flex-direction: column;
@@ -91,7 +91,7 @@
 	display: inline-flex;
 	align-items: center;
 	gap: 8px;
-	font-family: var(--sd-font-body);
+	font-family: var(--sd_font_body);
 	color: #8b8790;
 	text-decoration: none;
 	text-transform: lowercase;
@@ -146,7 +146,7 @@
 
 .sd_hero__brand_label {
 	margin: 0;
-	font-family: var(--sd-font-heading);
+	font-family: var(--sd_font_heading);
 	font-size: clamp(22px, 1.8vw, 34px);
 	font-weight: 700;
 	letter-spacing: 0.05em;
@@ -157,7 +157,7 @@
 .sd_hero__tools {
 	position: fixed;
 	top: 18px;
-	right: var(--sd-page-gutter);
+	right: var(--sd_page_gutter);
 	z-index: 2147483647 !important;
 	display: inline-flex;
 	align-items: center;
@@ -203,7 +203,7 @@
 .sd_hero__search_panel {
 	position: fixed;
 	top: 22px;
-	right: var(--sd-page-gutter);
+	right: var(--sd_page_gutter);
 	width: min(520px, 58vw);
 	min-height: 62px;
 	border-radius: 999px;
@@ -254,7 +254,7 @@
 	background: transparent;
 	width: 100%;
 	min-width: 0;
-	font-family: var(--sd-font-body);
+	font-family: var(--sd_font_body);
 	font-size: clamp(16px, 1.15vw, 20px);
 	color: #2f2b33;
 	outline: none;
@@ -335,7 +335,7 @@
 
 .sd_hero__search_result_name {
 	margin: 0;
-	font-family: var(--sd-font-body);
+	font-family: var(--sd_font_body);
 	font-size: 16px;
 	font-weight: 600;
 	color: #111;
@@ -343,7 +343,7 @@
 
 .sd_hero__search_result_price {
 	margin: 0;
-	font-family: var(--sd-font-body);
+	font-family: var(--sd_font_body);
 	font-size: 14px;
 	color: var(--sd_pink);
 }
@@ -355,7 +355,7 @@
 	right: 0;
 	padding: 18px;
 	text-align: center;
-	font-family: var(--sd-font-body);
+	font-family: var(--sd_font_body);
 	color: #7f7982;
 	background: rgb(253 243 248 / 82%);
 	backdrop-filter: blur(14px);
@@ -373,7 +373,7 @@
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	font-family: var(--sd-font-body);
+	font-family: var(--sd_font_body);
 	font-size: 10px;
 	font-weight: 700;
 	line-height: 1;
@@ -398,7 +398,7 @@
 .sd_hero__cart_panel {
 	position: fixed;
 	top: 22px;
-	right: var(--sd-page-gutter);
+	right: var(--sd_page_gutter);
 	width: min(420px, 94vw);
 	border-radius: 26px;
 	padding: 18px;
@@ -433,7 +433,7 @@
 
 .sd_hero__cart_title {
 	margin: 0;
-	font-family: var(--sd-font-heading);
+	font-family: var(--sd_font_heading);
 	font-size: 30px;
 	line-height: 1;
 	letter-spacing: 0.02em;
@@ -468,7 +468,7 @@
 
 .sd_hero__cart_empty {
 	margin: 0;
-	font-family: var(--sd-font-body);
+	font-family: var(--sd_font_body);
 	font-size: 16px;
 	color: #3f3944;
 }
@@ -513,7 +513,7 @@
 
 .sd_hero__cart_item_title {
 	margin: 0;
-	font-family: var(--sd-font-heading);
+	font-family: var(--sd_font_heading);
 	font-size: 20px;
 	line-height: 1;
 	text-transform: lowercase;
@@ -522,7 +522,7 @@
 
 .sd_hero__cart_item_price {
 	margin: 3px 0 0;
-	font-family: var(--sd-font-body);
+	font-family: var(--sd_font_body);
 	font-size: 16px;
 	font-weight: 600;
 	color: #cf7b9b;
@@ -553,7 +553,7 @@
 .sd_hero__qty_value {
 	min-width: 24px;
 	text-align: center;
-	font-family: var(--sd-font-body);
+	font-family: var(--sd_font_body);
 	font-size: 14px;
 	font-weight: 700;
 	color: #34303a;
@@ -562,7 +562,7 @@
 .sd_hero__cart_remove {
 	border: 0;
 	background: transparent;
-	font-family: var(--sd-font-body);
+	font-family: var(--sd_font_body);
 	font-size: 14px;
 	color: #b86586;
 	cursor: pointer;
@@ -573,14 +573,14 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	font-family: var(--sd-font-body);
+	font-family: var(--sd_font_body);
 	font-size: 16px;
 	color: #2d2a31;
 	text-transform: lowercase;
 }
 
 .sd_hero__cart_total_row strong {
-	font-family: var(--sd-font-heading);
+	font-family: var(--sd_font_heading);
 	font-size: 24px;
 	line-height: 1;
 }
@@ -593,7 +593,7 @@
 	border-radius: 999px;
 	background: #d986a7;
 	color: #fff;
-	font-family: var(--sd-font-body);
+	font-family: var(--sd_font_body);
 	font-size: 16px;
 	font-weight: 600;
 	letter-spacing: 0.02em;
@@ -626,7 +626,7 @@
 
 .sd_hero__marquee_text {
 	display: inline-block;
-	font-family: var(--sd-font-heading);
+	font-family: var(--sd_font_heading);
 	font-size: clamp(78px, 11.5vw, 168px);
 	font-weight: 700;
 	line-height: 0.88;
@@ -653,7 +653,7 @@
 
 .sd_hero__info {
 	position: absolute;
-	right: var(--sd-page-gutter);
+	right: var(--sd_page_gutter);
 	top: 84%;
 	transform: translateY(-50%);
 	z-index: 6;
@@ -662,7 +662,7 @@
 
 .sd_hero__info_text {
 	margin: 0;
-	font-family: var(--sd-font-body);
+	font-family: var(--sd_font_body);
 	font-size: 25px;
 	line-height: 1.18;
 	font-weight: 600;
@@ -683,7 +683,7 @@
 	border-radius: 999px;
 	background: #d986a7;
 	color: #fff;
-	font-family: var(--sd-font-body);
+	font-family: var(--sd_font_body);
 	font-size: 13px;
 	letter-spacing: 0.04em;
 	text-transform: lowercase;
@@ -722,7 +722,7 @@
 
 @media (max-width: 920px) {
 	.sd_hero {
-		padding: 12px var(--sd-page-gutter) 20px;
+		padding: 12px var(--sd_page_gutter) 20px;
 		min-height: 100vh;
 	}
 
@@ -763,7 +763,7 @@
 		justify-content: center;
 		position: absolute;
 		top: 24px;
-		right: var(--sd-page-gutter);
+		right: var(--sd_page_gutter);
 		width: 44px;
 		height: 44px;
 		padding: 10px;
@@ -791,23 +791,38 @@
 	.sd_hero__tools {
 		position: fixed;
 		top: 18px;
-		right: var(--sd-page-gutter);
+		right: var(--sd_page_gutter);
 		z-index: 1001;
 	}
 
 	.sd_hero__info {
 		position: relative;
 		top: auto !important;
-		bottom: 0 !important;
-		left: 0;
-		right: 0;
-		transform: none;
-		width: 100%;
-		margin-top: auto;
-		text-align: center;
+		right: auto !important;
+		transform: none !important;
+		width: 100% !important;
+		margin-top: 260px;
 	}
 
 	.sd_hero__info_text {
 		font-size: 20px;
+		text-align: center;
+	}
+
+	.sd_hero__actions {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+	}
+
+	.sd_hero__button_main {
+		flex: 1;
+	}
+
+	.sd_hero__search_panel {
+		top: 60px;
+		left: 10px;
+		right: 10px;
+		width: calc(100% - 20px);
 	}
 }

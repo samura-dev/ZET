@@ -1,6 +1,6 @@
 .sd_global_header {
   position: fixed;
-  inset: 16px var(--sd-page-gutter) auto;
+  inset: 16px var(--sd_page_gutter) auto;
   z-index: 2000;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -84,7 +84,7 @@
 }
 
 .sd_global_header__brand {
-  font-family: var(--sd-font-heading);
+  font-family: var(--sd_font_heading);
   font-size: 28px;
   font-weight: 700;
   text-decoration: none;
@@ -178,7 +178,7 @@
 .sd_global_header__search_panel {
   position: fixed;
   top: 20px;
-  right: var(--sd-page-gutter);
+  right: var(--sd_page_gutter);
   width: min(520px, 58vw);
   min-height: 62px;
   border-radius: 999px;
@@ -219,7 +219,7 @@
   border: 0;
   background: transparent;
   width: 100%;
-  font-family: var(--sd-font-body);
+  font-family: var(--sd_font_body);
   font-size: 18px;
   outline: none;
 }
@@ -261,7 +261,7 @@
 
 @media (max-width: 920px) {
   .sd_global_header {
-    inset: 10px var(--sd-page-gutter) auto;
+    inset: 10px var(--sd_page_gutter) auto;
     padding: 10px 14px;
     display: flex;
     justify-content: space-between;
@@ -305,7 +305,7 @@
     justify-content: center;
     position: absolute;
     top: 24px;
-    right: var(--sd-page-gutter);
+    right: var(--sd_page_gutter);
     width: 44px;
     height: 44px;
     color: #111;
