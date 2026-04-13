@@ -27,8 +27,8 @@ export const SdHeroBagViewer = ({
   const sd_resizeObserverRef = useRef<ResizeObserver | null>(null);
 
   const sd_composedClassName = className
-    ? `sd-hero__bag-frame ${className}`
-    : "sd-hero__bag-frame";
+    ? `sd_hero__bag_frame ${className}`
+    : "sd_hero__bag_frame";
 
   const sd_frameSources = useMemo(() => {
     return Array.from({ length: frameCount }, (_, sd_index) => {
@@ -142,7 +142,7 @@ export const SdHeroBagViewer = ({
     <div className={sd_composedClassName}>
       <canvas
         ref={sd_canvasRef}
-        className="sd-hero__bag-canvas"
+        className="sd_hero__bag_canvas"
         aria-label="Анимация футуристичной сумки HUSH"
       />
     </div>
