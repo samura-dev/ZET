@@ -31,27 +31,56 @@ export const SdGlobalHeader = ({ showLeftMenu = true }: sd_GlobalHeaderProps): J
     ).slice(0, 5);
   }, [sd_searchQuery, sd_products]);
 
+  const [sd_isMobileMenuOpen, sd_setIsMobileMenuOpen] = useState(false);
+
   return (
     <>
       <header className="sd-global-header" aria-label="Основная шапка">
-        {showLeftMenu ? (
-          <nav className="sd-global-header__menu" aria-label="Навигация">
-            {sd_menuItems.map((sd_item) => (
-              <a
-                key={sd_item.href}
-                href={sd_item.href}
-                className={
-                  sd_activePath === sd_item.href
-                    ? "sd-global-header__menu-item sd-global-header__menu-item--active"
-                    : "sd-global-header__menu-item"
-                }
+        {showLeftMenu && (
+          <>
+            <button
+              className="sd-global-header__burger"
+              type="button"
+              aria-label="Открыть меню"
+              aria-expanded={sd_isMobileMenuOpen}
+              onClick={() => sd_setIsMobileMenuOpen(true)}
+            >
+              <span />
+              <span />
+            </button>
+
+            <nav
+              className={
+                sd_isMobileMenuOpen
+                  ? "sd-global-header__menu sd-global-header__menu--open"
+                  : "sd-global-header__menu"
+              }
+              aria-label="Навигация"
+            >
+              <button
+                className="sd-global-header__menu-close"
+                type="button"
+                aria-label="Закрыть меню"
+                onClick={() => sd_setIsMobileMenuOpen(false)}
               >
-                <span>{sd_item.label}</span>
-              </a>
-            ))}
-          </nav>
-        ) : (
-          <span />
+                &times;
+              </button>
+              {sd_menuItems.map((sd_item) => (
+                <a
+                  key={sd_item.href}
+                  href={sd_item.href}
+                  onClick={() => sd_setIsMobileMenuOpen(false)}
+                  className={
+                    sd_activePath === sd_item.href
+                      ? "sd-global-header__menu-item sd-global-header__menu-item--active"
+                      : "sd-global-header__menu-item"
+                  }
+                >
+                  <span>{sd_item.label}</span>
+                </a>
+              ))}
+            </nav>
+          </>
         )}
 
         <a href="/" className="sd-global-header__brand" aria-label="HUSH ZET">

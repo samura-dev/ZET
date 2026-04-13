@@ -84,15 +84,49 @@
 }
 
 .sd-global-header__brand {
-  pointer-events: auto;
-  justify-self: center;
   font-family: var(--sd-font-heading);
-  font-size: clamp(22px, 1.8vw, 34px);
+  font-size: 28px;
   font-weight: 700;
-  letter-spacing: 0.05em;
-  color: #d986a7;
-  text-transform: uppercase;
   text-decoration: none;
+  color: #111;
+  letter-spacing: 0.05em;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.sd-global-header__burger {
+  display: none;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.sd-global-header__burger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #111;
+  border-radius: 2px;
+}
+
+.sd-global-header__menu-close {
+  display: none;
+  position: absolute;
+  top: 20px;
+  right: var(--sd-page-gutter);
+  border: 0;
+  background: transparent;
+  font-size: 44px;
+  line-height: 1;
+  color: #111;
+  cursor: pointer;
 }
 
 .sd-global-header__tools {
@@ -322,14 +356,68 @@
 @media (max-width: 920px) {
   .sd-global-header {
     inset: 10px var(--sd-page-gutter) auto;
+    padding: 10px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 54px;
+  }
+
+  .sd-global-header__burger {
+    display: flex;
+  }
+
+  .sd-global-header__menu {
+    position: fixed;
+    inset: 0;
+    background: rgb(253 243 248 / 96%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 1002;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    padding: 60px 20px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: all 400ms cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+  }
+
+  .sd-global-header__menu--open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .sd-global-header__menu-close {
+    display: block;
   }
 
   .sd-global-header__menu-item {
-    font-size: 16px;
+    font-size: 32px;
+    font-weight: 700;
+    color: #111;
+  }
+
+  .sd-global-header__brand {
+    font-size: 20px;
+  }
+
+  .sd-global-header__tools {
+    position: static;
+    transform: none;
+    gap: 12px;
   }
 
   .sd-global-header__search-panel {
-    left: var(--sd-page-gutter);
-    width: auto;
+    top: 60px;
+    left: 10px;
+    right: 10px;
+    width: calc(100% - 20px);
   }
 }

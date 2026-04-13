@@ -45,15 +45,42 @@
 	gap: 12px;
 }
 
-.sd-hero__menu {
+.sd-hero__burger {
+	display: none;
+	width: 32px;
+	height: 32px;
+	border: 0;
+	background: transparent;
+	padding: 0;
 	position: fixed;
 	top: 20px;
 	left: var(--sd-page-gutter);
-	z-index: 2147483647 !important;
-	display: flex;
 	flex-direction: column;
-	align-items: flex-start;
-	gap: 8px;
+	justify-content: center;
+	gap: 6px;
+	cursor: pointer;
+	z-index: 1001;
+}
+
+.sd-hero__burger span {
+	display: block;
+	width: 24px;
+	height: 2px;
+	background: #111;
+	border-radius: 2px;
+}
+
+.sd-hero__menu-close {
+	display: none;
+	position: absolute;
+	top: 20px;
+	right: var(--sd-page-gutter);
+	border: 0;
+	background: transparent;
+	font-size: 44px;
+	line-height: 1;
+	color: #111;
+	cursor: pointer;
 }
 
 .sd-hero__menu-item {
@@ -802,45 +829,76 @@
 	.sd-hero {
 		padding: 12px var(--sd-page-gutter) 20px;
 		min-height: 100vh;
-		display: flex;
-		flex-direction: column;
 	}
 
-	.sd-hero__topbar {
-		grid-template-columns: 1fr;
+	.sd-hero__burger {
 		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 16px;
-		position: relative;
-		z-index: 10;
 	}
 
 	.sd-hero__menu {
-		position: static;
-		flex-direction: row;
+		position: fixed;
+		inset: 0;
+		background: rgb(253 243 248 / 94%);
+		backdrop-filter: blur(20px);
+		-webkit-backdrop-filter: blur(20px);
+		z-index: 1002;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 		justify-content: center;
-		flex-wrap: wrap;
-		gap: 14px;
-		z-index: 5;
-		order: 2;
+		gap: 32px;
+		padding: 60px 20px;
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(-20px);
+		transition: all 400ms cubic-bezier(0.22, 1, 0.36, 1);
+		pointer-events: none;
+	}
+
+	.sd-hero__menu--open {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0);
+		pointer-events: auto;
+	}
+
+	.sd-hero__menu-close {
+		display: block;
 	}
 
 	.sd-hero__menu-item {
-		font-size: 14px;
+		font-size: 32px;
+		font-weight: 700;
+		color: #111;
+		text-align: center;
+	}
+
+	.sd-hero__menu-label {
+		font-size: 32px;
+	}
+
+	.sd-hero__topbar {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-height: 44px;
+		position: relative;
 	}
 
 	.sd-hero__brand-label {
-		order: 1;
-		font-size: 20px;
-		margin-bottom: 4px;
+		font-size: 22px;
+		margin: 0;
 	}
 
 	.sd-hero__tools {
-		position: absolute;
-		top: 0;
-		right: 0;
-		order: 3;
+		position: fixed;
+		top: 20px;
+		right: var(--sd-page-gutter);
+		z-index: 1001;
+	}
+
+	.sd-hero__menu-arrow {
+		display: none;
 	}
 
 	.sd-hero__search-panel,

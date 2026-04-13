@@ -107,14 +107,36 @@ export const SdHeroSection = ({ onCheckoutOpen }: sd_HeroSectionProps): JSX.Elem
     }, 300);
   };
 
+  const [sd_isMobileMenuOpen, sd_setIsMobileMenuOpen] = useState(false);
+
   return (
     <section className="sd-hero" aria-label="Главный экран HUSH">
-      <div className="sd-hero__background-glow" aria-hidden />
+      <div className="sd-hero__background-glow" aria-hidden="true" />
 
-      <header className="sd-hero__topbar">
-        <nav className="sd-hero__menu" aria-label="Главное меню">
+      <header className="sd_hero__topbar">
+        {/* Бургер для мобилок */}
+        <button
+          className="sd-hero__burger"
+          type="button"
+          aria-label="Открыть меню"
+          aria-expanded={sd_isMobileMenuOpen}
+          onClick={() => sd_setIsMobileMenuOpen(true)}
+        >
+          <span />
+          <span />
+        </button>
+
+        <nav className={sd_isMobileMenuOpen ? "sd-hero__menu sd-hero__menu--open" : "sd-hero__menu"}>
+          <button
+            className="sd-hero__menu-close"
+            type="button"
+            aria-label="Закрыть меню"
+            onClick={() => sd_setIsMobileMenuOpen(false)}
+          >
+            &times;
+          </button>
           {sd_menuItems.map((sd_item) => (
-            <a className="sd-hero__menu-item" href={sd_item.href} key={sd_item.label}>
+            <a className="sd-hero__menu-item" href={sd_item.href} key={sd_item.label} onClick={() => sd_setIsMobileMenuOpen(false)}>
               <span className="sd-hero__menu-label">{sd_item.label}</span>
               <span className="sd-hero__menu-arrow" aria-hidden>
                 →
