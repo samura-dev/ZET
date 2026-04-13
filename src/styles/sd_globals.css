@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap");
+
+:root {
+  --sd-font-heading: "Archivo", "Segoe UI", sans-serif;
+  --sd-font-body: "Inter", "Segoe UI", sans-serif;
+  --sd-page-gutter: 40px;
+  font-family: var(--sd-font-body);
+  color: #111218;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background-color: #f3f1f3;
+  font-family: var(--sd-font-body);
+}
+
+@media (max-width: 920px) {
+  :root {
+    --sd-page-gutter: 15px;
+  }
+}
