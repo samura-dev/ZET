@@ -1,7 +1,7 @@
 .sd_checkout {
   position: relative;
   overflow: clip;
-  padding: 100px var(--sd-page-gutter) 64px;
+  padding: 100px var(--sd_page-gutter) 64px;
   background:
     radial-gradient(50% 60% at 8% 12%, rgb(223 155 186 / 22%) 0%, rgb(223 155 186 / 0%) 74%),
     radial-gradient(45% 55% at 88% 76%, rgb(170 194 255 / 14%) 0%, rgb(170 194 255 / 0%) 72%),
@@ -48,7 +48,7 @@
 .sd_checkout__stripe_item {
   position: relative;
   padding-left: 22px;
-  font-family: var(--sd-font-heading);
+  font-family: var(--sd_font-heading);
   font-size: clamp(14px, 1.1vw, 20px);
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -91,7 +91,7 @@
   height: 38px;
   border-radius: 999px;
   padding: 0 14px;
-  font-family: var(--sd-font-body);
+  font-family: var(--sd_font-body);
   font-size: 14px;
   font-weight: 600;
   text-transform: lowercase;
@@ -106,7 +106,7 @@
 
 .sd_checkout__title {
   margin: 0;
-  font-family: var(--sd-font-heading);
+  font-family: var(--sd_font-heading);
   font-size: clamp(32px, 6vw, 92px);
   line-height: 1.1;
   letter-spacing: 0.02em;
@@ -116,7 +116,7 @@
 
 .sd_checkout__lead {
   margin: 10px 0 0;
-  font-family: var(--sd-font-body);
+  font-family: var(--sd_font-body);
   font-size: clamp(16px, 1.3vw, 24px);
   line-height: 1.3;
   font-weight: 500;
@@ -159,7 +159,7 @@
 
 .sd_checkout__group_title {
   margin: 0 0 16px;
-  font-family: var(--sd-font-heading);
+  font-family: var(--sd_font-heading);
   font-size: 22px;
   line-height: 1;
   text-transform: lowercase;
@@ -182,7 +182,7 @@
 }
 
 .sd_checkout__field span {
-  font-family: var(--sd-font-body);
+  font-family: var(--sd_font-body);
   font-size: 13px;
   color: #4f4656;
 }
@@ -194,7 +194,7 @@
   border: 1px solid rgb(73 53 72 / 16%);
   background: rgb(255 255 255 / 78%);
   padding: 0 20px;
-  font-family: var(--sd-font-body);
+  font-family: var(--sd_font-body);
   font-size: 15px;
   outline: none;
   transition: border-color 220ms ease;
@@ -216,7 +216,7 @@
   border: 1px solid rgb(57 41 58 / 16%);
   background: rgb(255 255 255 / 72%);
   padding: 0 20px;
-  font-family: var(--sd-font-body);
+  font-family: var(--sd_font-body);
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -237,7 +237,7 @@
 
 .sd_checkout__order_title {
   margin: 0;
-  font-family: var(--sd-font-heading);
+  font-family: var(--sd_font-heading);
   font-size: 32px;
   line-height: 1;
   color: #18141f;
@@ -294,7 +294,7 @@
   margin-top: 20px;
   padding-top: 20px;
   border-top: 1px solid rgb(0 0 0 / 6%);
-  font-family: var(--sd-font-heading);
+  font-family: var(--sd_font-heading);
   font-size: 28px;
   color: #111;
 }
@@ -307,7 +307,7 @@
   border: 0;
   background: #d986a7;
   color: #fff;
-  font-family: var(--sd-font-body);
+  font-family: var(--sd_font-body);
   font-size: 16px;
   font-weight: 700;
   cursor: pointer;

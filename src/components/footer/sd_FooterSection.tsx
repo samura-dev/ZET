@@ -1,4 +1,4 @@
-п»їimport { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./sd_FooterSection.css";
@@ -6,16 +6,16 @@ import "./sd_FooterSection.css";
 gsap.registerPlugin(ScrollTrigger);
 
 const sd_footerMenu = [
-  { label: "РіР»Р°РІРЅР°СЏ", href: "/" },
-  { label: "Рѕ РЅР°СЃ", href: "/about" },
-  { label: "РѕС‚Р·С‹РІС‹", href: "/reviews" },
-  { label: "РєРѕРЅС‚Р°РєС‚С‹", href: "/contacts" }
+  { label: "главная", href: "/" },
+  { label: "о нас", href: "/about" },
+  { label: "отзывы", href: "/reviews" },
+  { label: "контакты", href: "/contacts" }
 ];
 
 const sd_footerContacts = [
   { label: "instagram", href: "#" },
   { label: "telegram", href: "#" },
-  { label: "РїРѕС‡С‚Р°", href: "mailto:hello@hush-bags.com" }
+  { label: "почта", href: "mailto:hello@hush-bags.com" }
 ];
 
 const sd_footerTicker = [
@@ -41,13 +41,13 @@ export const SdFooterSection = (): JSX.Element => {
     const sd_prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     const sd_ctx = gsap.context(() => {
-      const sd_top = sd_footer.querySelector<HTMLElement>(".sd-footer__top");
-      const sd_content = sd_footer.querySelector<HTMLElement>(".sd-footer__content");
-      const sd_bottom = sd_footer.querySelector<HTMLElement>(".sd-footer__bottom");
-      const sd_tickerTrack = sd_footer.querySelector<HTMLElement>(".sd-footer__ticker-track");
-      const sd_orbLeft = sd_footer.querySelector<HTMLElement>(".sd-footer__orb--left");
-      const sd_orbRight = sd_footer.querySelector<HTMLElement>(".sd-footer__orb--right");
-      const sd_columns = sd_footer.querySelectorAll<HTMLElement>(".sd-footer__column");
+      const sd_top = sd_footer.querySelector<HTMLElement>(".sd_footer__top");
+      const sd_content = sd_footer.querySelector<HTMLElement>(".sd_footer__content");
+      const sd_bottom = sd_footer.querySelector<HTMLElement>(".sd_footer__bottom");
+      const sd_tickerTrack = sd_footer.querySelector<HTMLElement>(".sd_footer__ticker-track");
+      const sd_orbLeft = sd_footer.querySelector<HTMLElement>(".sd_footer__orb--left");
+      const sd_orbRight = sd_footer.querySelector<HTMLElement>(".sd_footer__orb--right");
+      const sd_columns = sd_footer.querySelectorAll<HTMLElement>(".sd_footer__column");
 
       if (
         !sd_top ||
@@ -152,38 +152,38 @@ export const SdFooterSection = (): JSX.Element => {
   }, []);
 
   return (
-    <footer className="sd-footer" aria-label="РџРѕРґРІР°Р» СЃР°Р№С‚Р° HUSH" ref={sd_footerRef}>
-      <span className="sd-footer__orb sd-footer__orb--left" aria-hidden />
-      <span className="sd-footer__orb sd-footer__orb--right" aria-hidden />
-      <span className="sd-footer__grid" aria-hidden />
+    <footer className="sd_footer" aria-label="Подвал сайта HUSH" ref={sd_footerRef}>
+      <span className="sd_footer__orb sd_footer__orb--left" aria-hidden />
+      <span className="sd_footer__orb sd_footer__orb--right" aria-hidden />
+      <span className="sd_footer__grid" aria-hidden />
 
-      <div className="sd-footer__ticker" aria-hidden>
-        <div className="sd-footer__ticker-track">
+      <div className="sd_footer__ticker" aria-hidden>
+        <div className="sd_footer__ticker-track">
           {sd_footerTicker.map((sd_item, sd_index) => (
-            <span className="sd-footer__ticker-item" key={`sd_footer_ticker_a_${sd_index}`}>
+            <span className="sd_footer__ticker-item" key={`sd_footer_ticker_a_${sd_index}`}>
               {sd_item}
             </span>
           ))}
           {sd_footerTicker.map((sd_item, sd_index) => (
-            <span className="sd-footer__ticker-item" key={`sd_footer_ticker_b_${sd_index}`}>
+            <span className="sd_footer__ticker-item" key={`sd_footer_ticker_b_${sd_index}`}>
               {sd_item}
             </span>
           ))}
         </div>
       </div>
 
-      <div className="sd-footer__top">
-        <p className="sd-footer__brand">HUSH / ZET</p>
-        <p className="sd-footer__subtitle">С„СѓС‚СѓСЂРёСЃС‚РёС‡РЅС‹Рµ СЃСѓРјРєРё РЅР° СЃС‚С‹РєРµ С„РѕСЂРјС‹, РїСЂР°РєС‚РёС‡РЅРѕСЃС‚Рё Рё РёСЃРєСѓСЃСЃС‚РІР°</p>
+      <div className="sd_footer__top">
+        <p className="sd_footer__brand">HUSH / ZET</p>
+        <p className="sd_footer__subtitle">футуристичные сумки на стыке формы, практичности и искусства</p>
       </div>
 
-      <div className="sd-footer__content">
-        <nav className="sd-footer__column" aria-label="РќР°РІРёРіР°С†РёСЏ С„СѓС‚РµСЂР°">
-          <h3 className="sd-footer__column-title">РЅР°РІРёРіР°С†РёСЏ</h3>
-          <ul className="sd-footer__list">
+      <div className="sd_footer__content">
+        <nav className="sd_footer__column" aria-label="Навигация футера">
+          <h3 className="sd_footer__column-title">навигация</h3>
+          <ul className="sd_footer__list">
             {sd_footerMenu.map((sd_item) => (
               <li key={sd_item.label}>
-                <a className="sd-footer__link" href={sd_item.href}>
+                <a className="sd_footer__link" href={sd_item.href}>
                   {sd_item.label}
                 </a>
               </li>
@@ -191,12 +191,12 @@ export const SdFooterSection = (): JSX.Element => {
           </ul>
         </nav>
 
-        <div className="sd-footer__column">
-          <h3 className="sd-footer__column-title">РєРѕРЅС‚Р°РєС‚С‹</h3>
-          <ul className="sd-footer__list">
+        <div className="sd_footer__column">
+          <h3 className="sd_footer__column-title">контакты</h3>
+          <ul className="sd_footer__list">
             {sd_footerContacts.map((sd_item) => (
               <li key={sd_item.label}>
-                <a className="sd-footer__link" href={sd_item.href}>
+                <a className="sd_footer__link" href={sd_item.href}>
                   {sd_item.label}
                 </a>
               </li>
@@ -204,26 +204,27 @@ export const SdFooterSection = (): JSX.Element => {
           </ul>
         </div>
 
-        <div className="sd-footer__column">
-          <h3 className="sd-footer__column-title">РґРѕСЃС‚Р°РІРєР°</h3>
-          <ul className="sd-footer__list">
+        <div className="sd_footer__column">
+          <h3 className="sd_footer__column-title">доставка</h3>
+          <ul className="sd_footer__list">
             <li>
-              <p className="sd-footer__meta">РїРѕ РјРёСЂСѓ: 3-9 СЂР°Р±РѕС‡РёС… РґРЅРµР№</p>
+              <p className="sd_footer__meta">по миру: 3-9 рабочих дней</p>
             </li>
             <li>
-              <p className="sd-footer__meta">РІРѕР·РІСЂР°С‚: 14 РґРЅРµР№</p>
+              <p className="sd_footer__meta">возврат: 14 дней</p>
             </li>
             <li>
-              <p className="sd-footer__meta">РїРѕРґРґРµСЂР¶РєР°: 24/7</p>
+              <p className="sd_footer__meta">поддержка: 24/7</p>
             </li>
           </ul>
         </div>
       </div>
 
-      <div className="sd-footer__bottom">
-        <p className="sd-footer__meta">В© {sd_currentYear} HUSH. Р’СЃРµ РїСЂР°РІР° Р·Р°С‰РёС‰РµРЅС‹.</p>
-        <p className="sd-footer__meta">made with love in moscow</p>
+      <div className="sd_footer__bottom">
+        <p className="sd_footer__meta">© {sd_currentYear} HUSH. Все права защищены.</p>
+        <p className="sd_footer__meta">made with love in moscow</p>
       </div>
     </footer>
   );
 };
+

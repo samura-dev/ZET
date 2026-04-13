@@ -48,9 +48,9 @@ export const SdProductPage = ({
 
     const sd_tl = gsap.timeline({ defaults: { ease: "power3.out" } });
     sd_tl
-      .from(".sd-product__breadcrumbs", { y: 12, opacity: 0, duration: 0.38, clearProps: "all" })
-      .from(".sd-product__media", { y: 16, opacity: 0, duration: 0.44, clearProps: "all" }, "-=0.18")
-      .from(".sd-product__content", { y: 16, opacity: 0, duration: 0.46, clearProps: "all" }, "-=0.3");
+      .from(".sd_product__breadcrumbs", { y: 12, opacity: 0, duration: 0.38, clearProps: "all" })
+      .from(".sd_product__media", { y: 16, opacity: 0, duration: 0.44, clearProps: "all" }, "-=0.18")
+      .from(".sd_product__content", { y: 16, opacity: 0, duration: 0.46, clearProps: "all" }, "-=0.3");
 
     return () => {
       sd_tl.kill();
@@ -86,12 +86,12 @@ export const SdProductPage = ({
 
   if (!sd_product) {
     return (
-      <section className="sd-product sd-product--not-found" aria-label="Товар не найден">
-        <div className="sd-product__not-found">
+      <section className="sd_product sd_product--not-found" aria-label="Товар не найден">
+        <div className="sd_product__not-found">
           <h2>товар не найден</h2>
           <p>Похоже, ссылка устарела. Вернитесь в каталог и выберите актуальную модель.</p>
           <button
-            className="sd-product__ghost-button"
+            className="sd_product__ghost-button"
             type="button"
             onClick={() => {
               onBackHome?.();
@@ -105,10 +105,10 @@ export const SdProductPage = ({
   }
 
   return (
-    <section className="sd-product" aria-label={`Страница товара ${sd_product.title}`}>
-      <div className="sd-product__breadcrumbs">
+    <section className="sd_product" aria-label={`Страница товара ${sd_product.title}`}>
+      <div className="sd_product__breadcrumbs">
         <button
-          className="sd-product__crumb-button"
+          className="sd_product__crumb-button"
           type="button"
           onClick={() => {
             onBackHome?.();
@@ -120,41 +120,41 @@ export const SdProductPage = ({
         <span>{sd_product.title}</span>
       </div>
 
-      <div className="sd-product__layout">
-        <div className="sd-product__media">
-          <div className="sd-product__main-image-wrap">
+      <div className="sd_product__layout">
+        <div className="sd_product__media">
+          <div className="sd_product__main-image-wrap">
             <img
-              className="sd-product__main-image"
+              className="sd_product__main-image"
               src={sd_product.images[0]}
               alt={`Сумка ${sd_product.title}`}
             />
           </div>
         </div>
 
-        <div className="sd-product__content">
-          <span className="sd-product__badge">{sd_product.badge}</span>
-          <h1 className="sd-product__title">{sd_product.title}</h1>
-          <p className="sd-product__subtitle">{sd_product.shortDescription}</p>
+        <div className="sd_product__content">
+          <span className="sd_product__badge">{sd_product.badge}</span>
+          <h1 className="sd_product__title">{sd_product.title}</h1>
+          <p className="sd_product__subtitle">{sd_product.shortDescription}</p>
 
-          <div className="sd-product__price-row">
+          <div className="sd_product__price-row">
             <strong>{sd_formatPrice(sd_product.price)}</strong>
             {sd_product.oldPrice ? <s>{sd_formatPrice(sd_product.oldPrice)}</s> : null}
-            <span className={sd_product.stock > 0 ? "sd-product__stock" : "sd-product__stock sd-product__stock--out"}>
+            <span className={sd_product.stock > 0 ? "sd_product__stock" : "sd_product__stock sd_product__stock--out"}>
               {sd_product.stock > 0 ? `в наличии: ${sd_product.stock}` : "нет в наличии"}
             </span>
           </div>
 
-          <p className="sd-product__description">{sd_product.description}</p>
+          <p className="sd_product__description">{sd_product.description}</p>
 
-          <ul className="sd-product__specs">
+          <ul className="sd_product__specs">
             {sd_product.specs.map((sd_spec) => (
               <li key={sd_spec}>{sd_spec}</li>
             ))}
           </ul>
 
-          <div className="sd-product__actions">
+          <div className="sd_product__actions">
             <button
-              className="sd-product__primary-button"
+              className="sd_product__primary-button"
               type="button"
               onClick={() => {
                 if (sd_product) {
@@ -170,7 +170,7 @@ export const SdProductPage = ({
               {sd_ctaState === "added" ? "добавлено" : "в корзину"}
             </button>
             <button
-              className="sd-product__secondary-button"
+              className="sd_product__secondary-button"
               type="button"
               onClick={() => {
                 if (sd_product) {
@@ -186,32 +186,32 @@ export const SdProductPage = ({
         </div>
       </div>
 
-      <div className="sd-product__related">
-        <h2 className="sd-product__related-title">похожие товары</h2>
-        <div className="sd-product__related-slider">
-          <div className="sd-product__related-viewport" ref={sd_relatedEmblaRef}>
-            <div className="sd-product__related-track">
+      <div className="sd_product__related">
+        <h2 className="sd_product__related-title">похожие товары</h2>
+        <div className="sd_product__related-slider">
+          <div className="sd_product__related-viewport" ref={sd_relatedEmblaRef}>
+            <div className="sd_product__related-track">
               {sd_related.map((sd_item) => (
-                <div className="sd-product__related-slide" key={sd_item.id}>
-                  <article className="sd-product__related-card">
-                    <a href={`/product/${sd_item.slug}`} className="sd-product__related-visual">
-                      <span className="sd-product__related-badge">{sd_item.badge}</span>
+                <div className="sd_product__related-slide" key={sd_item.id}>
+                  <article className="sd_product__related-card">
+                    <a href={`/product/${sd_item.slug}`} className="sd_product__related-visual">
+                      <span className="sd_product__related-badge">{sd_item.badge}</span>
                       <img
-                        className="sd-product__related-image"
+                        className="sd_product__related-image"
                         src={sd_item.images[0]}
                         alt={`Сумка ${sd_item.title}`}
                         loading="lazy"
                       />
                     </a>
 
-                    <div className="sd-product__related-info">
-                      <div className="sd-product__related-meta">
-                        <h3 className="sd-product__related-name">{sd_item.title}</h3>
-                        <p className="sd-product__related-price">{sd_formatPrice(sd_item.price)}</p>
+                    <div className="sd_product__related-info">
+                      <div className="sd_product__related-meta">
+                        <h3 className="sd_product__related-name">{sd_item.title}</h3>
+                        <p className="sd_product__related-price">{sd_formatPrice(sd_item.price)}</p>
                       </div>
-                      <div className="sd-product__related-actions">
+                      <div className="sd_product__related-actions">
                         <button
-                          className="sd-product__related-add"
+                          className="sd_product__related-add"
                           type="button"
                           aria-label="Добавить в корзину"
                           onClick={(sd_event) => {
@@ -221,7 +221,7 @@ export const SdProductPage = ({
                         >
                           +
                         </button>
-                        <a className="sd-product__related-link" href={`/product/${sd_item.slug}`}>
+                        <a className="sd_product__related-link" href={`/product/${sd_item.slug}`}>
                           к товару
                         </a>
                       </div>
@@ -236,3 +236,4 @@ export const SdProductPage = ({
     </section>
   );
 };
+

@@ -1,4 +1,4 @@
-ï»¿import { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./sd_CarryArtSection.css";
@@ -19,7 +19,7 @@ export const SdCarryArtSection = (): JSX.Element => {
 
     const sd_ctx = gsap.context(() => {
       if (sd_prefersReducedMotion) {
-        gsap.set(".sd-carry-art__word, .sd-carry-art__tile", { autoAlpha: 1, y: 0 });
+        gsap.set(".sd_carry-art__word, .sd_carry-art__tile", { autoAlpha: 1, y: 0 });
         return;
       }
 
@@ -33,7 +33,7 @@ export const SdCarryArtSection = (): JSX.Element => {
       });
 
       sd_entranceTl
-        .from(".sd-carry-art__word", {
+        .from(".sd_carry-art__word", {
           autoAlpha: 0,
           y: 62,
           duration: 1.1,
@@ -41,7 +41,7 @@ export const SdCarryArtSection = (): JSX.Element => {
           ease: "power4.out"
         })
         .from(
-          ".sd-carry-art__tile",
+          ".sd_carry-art__tile",
           {
             autoAlpha: 0,
             y: 58,
@@ -53,7 +53,7 @@ export const SdCarryArtSection = (): JSX.Element => {
           "-=0.72"
         )
         .from(
-          ".sd-carry-art__tile-shine",
+          ".sd_carry-art__tile-shine",
           {
             xPercent: -120,
             autoAlpha: 0,
@@ -64,7 +64,7 @@ export const SdCarryArtSection = (): JSX.Element => {
           "-=0.9"
         );
 
-      gsap.to(".sd-carry-art__tile-media", {
+      gsap.to(".sd_carry-art__tile-media", {
         yPercent: -9,
         ease: "none",
         scrollTrigger: {
@@ -85,9 +85,9 @@ export const SdCarryArtSection = (): JSX.Element => {
       });
 
       sd_floatTl
-        .to(".sd-carry-art__tile--chain", { y: -10, rotation: -0.8 }, 0)
-        .to(".sd-carry-art__tile--liquid", { y: -16, rotation: 0.8 }, 0)
-        .to(".sd-carry-art__tile--fur", { y: -12, rotation: -0.6 }, 0);
+        .to(".sd_carry-art__tile--chain", { y: -10, rotation: -0.8 }, 0)
+        .to(".sd_carry-art__tile--liquid", { y: -16, rotation: 0.8 }, 0)
+        .to(".sd_carry-art__tile--fur", { y: -12, rotation: -0.6 }, 0);
     }, sd_section);
 
     return () => {
@@ -96,54 +96,55 @@ export const SdCarryArtSection = (): JSX.Element => {
   }, []);
 
   return (
-    <section className="sd-carry-art" ref={sd_sectionRef} aria-label="Art you can carry">
-      <div className="sd-carry-art__grid">
-        <h2 className="sd-carry-art__headline" aria-label="art you can carry">
-          <span className="sd-carry-art__word">art</span>
-          <span className="sd-carry-art__word">you</span>
-          <span className="sd-carry-art__word">can</span>
-          <span className="sd-carry-art__word">carry</span>
+    <section className="sd_carry-art" ref={sd_sectionRef} aria-label="Art you can carry">
+      <div className="sd_carry-art__grid">
+        <h2 className="sd_carry-art__headline" aria-label="art you can carry">
+          <span className="sd_carry-art__word">art</span>
+          <span className="sd_carry-art__word">you</span>
+          <span className="sd_carry-art__word">can</span>
+          <span className="sd_carry-art__word">carry</span>
         </h2>
 
-        <article className="sd-carry-art__tile sd-carry-art__tile--chain" aria-label="ÐœÐµÑ‚Ð°Ð»Ð»Ð¸Ñ‡ÐµÑÐºÐ°Ñ Ñ†ÐµÐ¿ÑŒ">
-          <div className="sd-carry-art__tile-media">
+        <article className="sd_carry-art__tile sd_carry-art__tile--chain" aria-label="Ìåòàëëè÷åñêàÿ öåïü">
+          <div className="sd_carry-art__tile-media">
             <img
-              className="sd-carry-art__tile-image"
+              className="sd_carry-art__tile-image"
               src="/block4/Rectangle%202527.jpg"
-              alt="ÐÑ€Ñ‚-Ñ‚ÐµÐºÑÑ‚ÑƒÑ€Ð°: Ñ…Ñ€Ð¾Ð¼Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ñ‹Ð¹ Ð¾Ð±ÑŠÐµÐºÑ‚"
+              alt="Àðò-òåêñòóðà: õðîìèðîâàííûé îáúåêò"
               loading="lazy"
               decoding="async"
             />
           </div>
-          <span className="sd-carry-art__tile-shine" aria-hidden />
+          <span className="sd_carry-art__tile-shine" aria-hidden />
         </article>
 
-        <article className="sd-carry-art__tile sd-carry-art__tile--liquid" aria-label="Ð–Ð¸Ð´ÐºÐ¸Ð¹ Ð¼ÐµÑ‚Ð°Ð»Ð»">
-          <div className="sd-carry-art__tile-media">
+        <article className="sd_carry-art__tile sd_carry-art__tile--liquid" aria-label="Æèäêèé ìåòàëë">
+          <div className="sd_carry-art__tile-media">
             <img
-              className="sd-carry-art__tile-image"
+              className="sd_carry-art__tile-image"
               src="/block4/Rectangle%202526.jpg"
-              alt="ÐÑ€Ñ‚-Ñ‚ÐµÐºÑÑ‚ÑƒÑ€Ð°: Ð¶Ð¸Ð´ÐºÐ¸Ð¹ Ð¼ÐµÑ‚Ð°Ð»Ð»"
+              alt="Àðò-òåêñòóðà: æèäêèé ìåòàëë"
               loading="lazy"
               decoding="async"
             />
           </div>
-          <span className="sd-carry-art__tile-shine" aria-hidden />
+          <span className="sd_carry-art__tile-shine" aria-hidden />
         </article>
 
-        <article className="sd-carry-art__tile sd-carry-art__tile--fur" aria-label="Ð¢ÐµÐºÑÑ‚ÑƒÑ€Ð° Ð¼ÐµÑ…Ð°">
-          <div className="sd-carry-art__tile-media">
+        <article className="sd_carry-art__tile sd_carry-art__tile--fur" aria-label="Òåêñòóðà ìåõà">
+          <div className="sd_carry-art__tile-media">
             <img
-              className="sd-carry-art__tile-image"
+              className="sd_carry-art__tile-image"
               src="/block4/Rectangle%202525.jpg"
-              alt="ÐÑ€Ñ‚-Ñ‚ÐµÐºÑÑ‚ÑƒÑ€Ð°: Ñ€Ð¾Ð·Ð¾Ð²Ñ‹Ð¹ Ð¼ÐµÑ…"
+              alt="Àðò-òåêñòóðà: ðîçîâûé ìåõ"
               loading="lazy"
               decoding="async"
             />
           </div>
-          <span className="sd-carry-art__tile-shine" aria-hidden />
+          <span className="sd_carry-art__tile-shine" aria-hidden />
         </article>
       </div>
     </section>
   );
 };
+

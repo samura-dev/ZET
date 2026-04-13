@@ -1,32 +1,32 @@
-﻿.sd-reviews {
+.sd_reviews {
   position: relative;
-  padding: 110px var(--sd-page-gutter) 70px;
+  padding: 110px var(--sd_page-gutter) 70px;
   background:
     linear-gradient(180deg, #f5f2f5 0%, #ece7ec 100%),
     linear-gradient(120deg, rgb(217 134 167 / 6%) 0%, transparent 55%);
 }
 
-.sd-reviews__hero,
-.sd-reviews__layout > * {
+.sd_reviews__hero,
+.sd_reviews__layout > * {
   opacity: 1;
 }
 
-.sd-reviews__hero h1 {
+.sd_reviews__hero h1 {
   margin: 0;
-  font-family: var(--sd-font-heading);
+  font-family: var(--sd_font-heading);
   font-size: clamp(42px, 7vw, 88px);
   line-height: 0.9;
   text-transform: lowercase;
   color: #16131b;
 }
 
-.sd-reviews__hero p {
+.sd_reviews__hero p {
   margin: 12px 0 0;
   color: #3f3845;
   font-size: 19px;
 }
 
-.sd-reviews__layout {
+.sd_reviews__layout {
   margin-top: 28px;
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
@@ -34,12 +34,12 @@
   align-items: start;
 }
 
-.sd-reviews__list {
+.sd_reviews__list {
   display: grid;
   gap: 14px;
 }
 
-.sd-reviews__item {
+.sd_reviews__item {
   border-radius: 24px;
   padding: 20px;
   background: rgb(255 255 255 / 96%);
@@ -49,24 +49,24 @@
     inset 0 1px 0 rgb(255 255 255 / 75%);
 }
 
-.sd-reviews__item-head {
+.sd_reviews__item-head {
   display: flex;
   justify-content: space-between;
   gap: 10px;
 }
 
-.sd-reviews__item-head strong {
+.sd_reviews__item-head strong {
   font-size: 22px;
   color: #16131b;
 }
 
-.sd-reviews__item-head span {
+.sd_reviews__item-head span {
   font-size: 14px;
   color: #6c6272;
 }
 
-.sd-reviews__item-product,
-.sd-reviews__item-rating {
+.sd_reviews__item-product,
+.sd_reviews__item-rating {
   margin: 8px 0 0;
   color: #bf5f85;
   font-weight: 700;
@@ -75,7 +75,7 @@
   gap: 8px;
 }
 
-.sd-reviews__rating-pill {
+.sd_reviews__rating-pill {
   width: 30px;
   height: 30px;
   border-radius: 999px;
@@ -89,18 +89,18 @@
   box-shadow: 0 8px 20px rgb(191 95 133 / 28%);
 }
 
-.sd-reviews__item-text {
+.sd_reviews__item-text {
   margin: 10px 0 0;
   font-size: 17px;
   color: #241f2b;
   line-height: 1.5;
 }
 
-.sd-reviews__select {
+.sd_reviews__select {
   position: relative;
 }
 
-.sd-reviews__select-trigger {
+.sd_reviews__select-trigger {
   width: 100%;
   height: 46px;
   border-radius: 14px;
@@ -114,20 +114,20 @@
   cursor: pointer;
 }
 
-.sd-reviews__select-trigger--open {
+.sd_reviews__select-trigger--open {
   border-color: rgb(217 134 167 / 78%);
 }
 
-.sd-reviews__select-chevron {
+.sd_reviews__select-chevron {
   font-size: 15px;
   transition: transform 200ms ease;
 }
 
-.sd-reviews__select-trigger--open .sd-reviews__select-chevron {
+.sd_reviews__select-trigger--open .sd_reviews__select-chevron {
   transform: rotate(180deg);
 }
 
-.sd-reviews__select-menu {
+.sd_reviews__select-menu {
   position: absolute;
   top: calc(100% + 8px);
   left: 0;
@@ -144,7 +144,7 @@
   gap: 6px;
 }
 
-.sd-reviews__select-option {
+.sd_reviews__select-option {
   border: 0;
   border-radius: 10px;
   height: 38px;
@@ -155,16 +155,16 @@
   cursor: pointer;
 }
 
-.sd-reviews__select-option:hover {
+.sd_reviews__select-option:hover {
   background: rgb(255 255 255 / 10%);
 }
 
-.sd-reviews__select-option--active {
+.sd_reviews__select-option--active {
   background: linear-gradient(135deg, #d986a7 0%, #bf5f85 100%);
   color: #fff;
 }
 
-.sd-reviews__form {
+.sd_reviews__form {
   border-radius: 24px;
   padding: 22px;
   background: linear-gradient(145deg, #1a1620 0%, #2b2533 100%);
@@ -175,24 +175,24 @@
   box-shadow: 0 22px 48px rgb(20 16 26 / 28%);
 }
 
-.sd-reviews__form h2 {
+.sd_reviews__form h2 {
   margin: 0 0 6px;
-  font-family: var(--sd-font-heading);
+  font-family: var(--sd_font-heading);
   font-size: 34px;
   line-height: 0.9;
   text-transform: lowercase;
   color: #fff;
 }
 
-.sd-reviews__form label {
+.sd_reviews__form label {
   display: grid;
   gap: 6px;
   font-size: 15px;
   color: rgb(255 255 255 / 82%);
 }
 
-.sd-reviews__form input,
-.sd-reviews__form textarea {
+.sd_reviews__form input,
+.sd_reviews__form textarea {
   border: 1px solid rgb(255 255 255 / 18%);
   border-radius: 14px;
   background: rgb(255 255 255 / 14%);
@@ -201,7 +201,7 @@
   outline: none;
 }
 
-.sd-reviews__rating-fieldset {
+.sd_reviews__rating-fieldset {
   margin: 0;
   padding: 0;
   border: 0;
@@ -209,19 +209,19 @@
   gap: 8px;
 }
 
-.sd-reviews__rating-fieldset legend {
+.sd_reviews__rating-fieldset legend {
   font-size: 15px;
   color: rgb(255 255 255 / 82%);
   margin-bottom: 2px;
 }
 
-.sd-reviews__rating-grid {
+.sd_reviews__rating-grid {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 8px;
 }
 
-.sd-reviews__rating-button {
+.sd_reviews__rating-button {
   height: 38px;
   border-radius: 999px;
   border: 1px solid rgb(255 255 255 / 20%);
@@ -232,12 +232,12 @@
   transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
 }
 
-.sd-reviews__rating-button:hover {
+.sd_reviews__rating-button:hover {
   transform: translateY(-1px);
   border-color: rgb(255 255 255 / 36%);
 }
 
-.sd-reviews__rating-button--active {
+.sd_reviews__rating-button--active {
   color: #fff;
   border-color: rgb(217 134 167 / 82%);
   background: linear-gradient(135deg, #d986a7 0%, #bf5f85 100%);
@@ -248,17 +248,17 @@
     0 0 22px rgb(217 134 167 / 46%);
 }
 
-.sd-reviews__form input::placeholder,
-.sd-reviews__form textarea::placeholder {
+.sd_reviews__form input::placeholder,
+.sd_reviews__form textarea::placeholder {
   color: rgb(255 255 255 / 46%);
 }
 
-.sd-reviews__form textarea {
+.sd_reviews__form textarea {
   min-height: 140px;
   resize: vertical;
 }
 
-.sd-reviews__form button {
+.sd_reviews__form button {
   margin-top: 4px;
   border: 0;
   border-radius: 999px;
@@ -272,19 +272,20 @@
 }
 
 @media (max-width: 920px) {
-  .sd-reviews {
-    padding: 92px var(--sd-page-gutter) 48px;
+  .sd_reviews {
+    padding: 92px var(--sd_page-gutter) 48px;
   }
 
-  .sd-reviews__layout {
+  .sd_reviews__layout {
     grid-template-columns: 1fr;
   }
 
-  .sd-reviews__item-text {
+  .sd_reviews__item-text {
     font-size: 16px;
   }
 
-  .sd-reviews__rating-grid {
+  .sd_reviews__rating-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+

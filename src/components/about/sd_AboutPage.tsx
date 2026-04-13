@@ -63,7 +63,7 @@ export const SdAboutPage = (): JSX.Element => {
       const sd_bag = sd_bagRef.current;
 
       gsap.fromTo(
-        ".sd-about__hero > *",
+        ".sd_about__hero > *",
         { autoAlpha: 0, y: 26 },
         {
           autoAlpha: 1,
@@ -85,7 +85,7 @@ export const SdAboutPage = (): JSX.Element => {
           y: sd_targetY,
           ease: "none",
           scrollTrigger: {
-            trigger: ".sd-about__hero",
+            trigger: ".sd_about__hero",
             start: "top top",
             end: "bottom+=120 top",
             scrub: true
@@ -93,7 +93,7 @@ export const SdAboutPage = (): JSX.Element => {
         });
       }
 
-      gsap.utils.toArray<HTMLElement>(".sd-about__section").forEach((sd_section) => {
+      gsap.utils.toArray<HTMLElement>(".sd_about__section").forEach((sd_section) => {
         gsap.fromTo(
           sd_section,
           { autoAlpha: 0, y: 32 },
@@ -135,26 +135,26 @@ export const SdAboutPage = (): JSX.Element => {
   }, [sd_activePoint]);
 
   return (
-    <section className="sd-about" ref={sd_rootRef}>
-      <header className="sd-about__hero sd-about__section">
-        <div className="sd-about__hero-top">
-          <span className="sd-about__hero-caption">shape your reality</span>
+    <section className="sd_about" ref={sd_rootRef}>
+      <header className="sd_about__hero sd_about__section">
+        <div className="sd_about__hero-top">
+          <span className="sd_about__hero-caption">shape your reality</span>
         </div>
-        <div className="sd-about__hero-visual">
+        <div className="sd_about__hero-visual">
           <img ref={sd_bagRef} src="/hero-about.png" alt="ZET hero" loading="lazy" />
           <h1 ref={sd_titleRef}>futurism in every fold</h1>
-          <span className="sd-about__hero-note">visual shock</span>
+          <span className="sd_about__hero-note">visual shock</span>
         </div>
       </header>
 
-      <section className="sd-about__process sd-about__section">
-        <div className="sd-about__process-left">
+      <section className="sd_about__process sd_about__section">
+        <div className="sd_about__process-left">
           {sd_aboutPoints.map((sd_point, sd_index) => (
             <button
               className={
                 sd_index === sd_activePoint
-                  ? "sd-about__process-item sd-about__process-item--active"
-                  : "sd-about__process-item"
+                  ? "sd_about__process-item sd_about__process-item--active"
+                  : "sd_about__process-item"
               }
               key={sd_point.id}
               type="button"
@@ -165,31 +165,31 @@ export const SdAboutPage = (): JSX.Element => {
                 sd_setActivePoint(sd_index);
               }}
             >
-              <span className="sd-about__process-id">{sd_point.id}</span>
-              <span className="sd-about__process-title">{sd_point.title}</span>
-              <span className="sd-about__process-line" aria-hidden />
+              <span className="sd_about__process-id">{sd_point.id}</span>
+              <span className="sd_about__process-title">{sd_point.title}</span>
+              <span className="sd_about__process-line" aria-hidden />
             </button>
           ))}
         </div>
-        <div className="sd-about__process-right">
+        <div className="sd_about__process-right">
           <p ref={sd_textRef}>{sd_currentPoint.text}</p>
         </div>
       </section>
 
-      <section className="sd-about__vision sd-about__section">
-        <div className="sd-about__vision-left">
+      <section className="sd_about__vision sd_about__section">
+        <div className="sd_about__vision-left">
           <p>
             Лучшие материалы, выверенная до миллиметра эргономика и прайс, который позволяет тебе
             собирать собственный гардероб из смелых стейтмент-вещей, а не копить на один аксессуар
             годами.
           </p>
-          <a className="sd-about__vision-actions" href="/#catalog">
-            <span className="sd-about__vision-button">
+          <a className="sd_about__vision-actions" href="/#catalog">
+            <span className="sd_about__vision-button">
               каталог
             </span>
-            <span className="sd-about__vision-arrow" aria-hidden>
+            <span className="sd_about__vision-arrow" aria-hidden>
               <svg
-                className="sd-about__vision-arrow-icon"
+                className="sd_about__vision-arrow-icon"
                 width="20"
                 height="20"
                 viewBox="0 0 20 20"
@@ -206,12 +206,12 @@ export const SdAboutPage = (): JSX.Element => {
               </svg>
             </span>
           </a>
-          <div className="sd-about__vision-photo sd-about__vision-photo--small">
+          <div className="sd_about__vision-photo sd_about__vision-photo--small">
             <img src="/about/about201.jpg" alt="Коллекция ZET" loading="lazy" />
           </div>
         </div>
-        <div className="sd-about__vision-right">
-          <div className="sd-about__vision-photo sd-about__vision-photo--large">
+        <div className="sd_about__vision-right">
+          <div className="sd_about__vision-photo sd_about__vision-photo--large">
             <img src="/about/about202.jpg" alt="Витрина ZET" loading="lazy" />
           </div>
         </div>
@@ -219,3 +219,4 @@ export const SdAboutPage = (): JSX.Element => {
     </section>
   );
 };
+

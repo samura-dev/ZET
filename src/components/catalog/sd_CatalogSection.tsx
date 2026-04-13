@@ -136,8 +136,8 @@ export const SdCatalogSection = (): JSX.Element => {
   }, [sd_emblaApi]);
 
   return (
-    <section className="sd-catalog" id="catalog" aria-label="Каталог сумок HUSH">
-      <div className="sd-catalog__tabs" role="tablist" aria-label="Группы товаров">
+    <section className="sd_catalog" id="catalog" aria-label="Каталог сумок HUSH">
+      <div className="sd_catalog__tabs" role="tablist" aria-label="Группы товаров">
         {sd_tabs.map((sd_tab) => {
           const sd_isActive = sd_activeTab === sd_tab.key;
           return (
@@ -146,13 +146,13 @@ export const SdCatalogSection = (): JSX.Element => {
               type="button"
               role="tab"
               aria-selected={sd_isActive}
-              aria-controls={`sd-catalog-panel-${sd_tab.key}`}
+              aria-controls={`sd_catalog-panel-${sd_tab.key}`}
               className={[
-                "sd-catalog__tab",
+                "sd_catalog__tab",
                 sd_tab.tone === "center"
-                  ? "sd-catalog__tab--center"
-                  : "sd-catalog__tab--side",
-                sd_isActive ? "sd-catalog__tab--active" : ""
+                  ? "sd_catalog__tab--center"
+                  : "sd_catalog__tab--side",
+                sd_isActive ? "sd_catalog__tab--active" : ""
               ]
                 .filter(Boolean)
                 .join(" ")}
@@ -167,25 +167,25 @@ export const SdCatalogSection = (): JSX.Element => {
       </div>
 
       <div
-        className="sd-catalog__slider"
-        id={`sd-catalog-panel-${sd_activeTab}`}
+        className="sd_catalog__slider"
+        id={`sd_catalog-panel-${sd_activeTab}`}
         role="tabpanel"
       >
-        <div className="sd-catalog__viewport" ref={sd_emblaRef}>
-          <div className="sd-catalog__track">
+        <div className="sd_catalog__viewport" ref={sd_emblaRef}>
+          <div className="sd_catalog__track">
             {sd_productsList.map((sd_product, sd_index) => {
               const sd_isCentered = sd_index === sd_activeSlide;
               return (
                 <div
                   className={
                     sd_isCentered
-                      ? "sd-catalog__slide sd-catalog__slide--active"
-                      : "sd-catalog__slide"
+                      ? "sd_catalog__slide sd_catalog__slide--active"
+                      : "sd_catalog__slide"
                   }
                   key={sd_product.id}
                 >
                   <article
-                    className="sd-catalog__card"
+                    className="sd_catalog__card"
                     onClick={() => {
                       sd_emblaApi?.scrollNext();
                     }}
@@ -198,10 +198,10 @@ export const SdCatalogSection = (): JSX.Element => {
                       }
                     }}
                   >
-                    <div className="sd-catalog__card-visual">
-                      <span className="sd-catalog__card-badge">{sd_product.badge}</span>
+                    <div className="sd_catalog__card-visual">
+                      <span className="sd_catalog__card-badge">{sd_product.badge}</span>
                       <img
-                        className="sd-catalog__card-image"
+                        className="sd_catalog__card-image"
                         src={sd_product.imageSrc}
                         alt={sd_product.imageAlt}
                         width={385}
@@ -211,14 +211,14 @@ export const SdCatalogSection = (): JSX.Element => {
                       />
                     </div>
 
-                    <div className="sd-catalog__card-footer">
-                      <div className="sd-catalog__card-meta">
-                        <h3 className="sd-catalog__card-title">{sd_product.title}</h3>
-                        <p className="sd-catalog__card-price">{sd_product.price}</p>
+                    <div className="sd_catalog__card-footer">
+                      <div className="sd_catalog__card-meta">
+                        <h3 className="sd_catalog__card-title">{sd_product.title}</h3>
+                        <p className="sd_catalog__card-price">{sd_product.price}</p>
                       </div>
-                      <div className="sd-catalog__card-actions">
+                      <div className="sd_catalog__card-actions">
                         <button
-                          className="sd-catalog__card-add-btn"
+                          className="sd_catalog__card-add-btn"
                           type="button"
                           aria-label="Добавить в корзину"
                           onClick={(sd_event) => {
@@ -237,7 +237,7 @@ export const SdCatalogSection = (): JSX.Element => {
                           </svg>
                         </button>
                         <a
-                          className="sd-catalog__card-cta"
+                          className="sd_catalog__card-cta"
                           href={sd_product.href}
                           onClick={(sd_event) => {
                             sd_event.stopPropagation();
@@ -257,3 +257,4 @@ export const SdCatalogSection = (): JSX.Element => {
     </section>
   );
 };
+

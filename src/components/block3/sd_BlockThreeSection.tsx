@@ -22,13 +22,13 @@ export const SdBlockThreeSection = (): JSX.Element => {
     let sd_mobileTl: gsap.core.Timeline | null = null;
 
     const sd_ctx = gsap.context(() => {
-      const sd_title = sd_section.querySelector<HTMLElement>(".sd-block-three__title");
-      const sd_lead = sd_section.querySelector<HTMLElement>(".sd-block-three__lead");
-      const sd_description = sd_section.querySelector<HTMLElement>(".sd-block-three__description");
-      const sd_largeCard = sd_section.querySelector<HTMLElement>(".sd-block-three__item--large");
-      const sd_smallCard = sd_section.querySelector<HTMLElement>(".sd-block-three__item--small");
-      const sd_textColumn = sd_section.querySelector<HTMLElement>(".sd-block-three__text-column");
-      const sd_spotlight = sd_section.querySelector<HTMLElement>(".sd-block-three__spotlight");
+      const sd_title = sd_section.querySelector<HTMLElement>(".sd_block-three__title");
+      const sd_lead = sd_section.querySelector<HTMLElement>(".sd_block-three__lead");
+      const sd_description = sd_section.querySelector<HTMLElement>(".sd_block-three__description");
+      const sd_largeCard = sd_section.querySelector<HTMLElement>(".sd_block-three__item--large");
+      const sd_smallCard = sd_section.querySelector<HTMLElement>(".sd_block-three__item--small");
+      const sd_textColumn = sd_section.querySelector<HTMLElement>(".sd_block-three__text-column");
+      const sd_spotlight = sd_section.querySelector<HTMLElement>(".sd_block-three__spotlight");
 
       if (!sd_title || !sd_lead || !sd_description || !sd_largeCard || !sd_smallCard || !sd_textColumn || !sd_spotlight) {
         return;
@@ -189,41 +189,41 @@ export const SdBlockThreeSection = (): JSX.Element => {
   }, []);
 
   return (
-    <section className="sd-block-three" aria-label="Carry Art" ref={sd_sectionRef}>
-      <span className="sd-block-three__spotlight" aria-hidden />
+    <section className="sd_block-three" aria-label="Carry Art" ref={sd_sectionRef}>
+      <span className="sd_block-three__spotlight" aria-hidden />
 
-      <div className="sd-block-three__top">
-        <h2 className="sd-block-three__title">carry art</h2>
-        <p className="sd-block-three__lead">
+      <div className="sd_block-three__top">
+        <h2 className="sd_block-three__title">carry art</h2>
+        <p className="sd_block-three__lead">
           наша команда увлечена футуризмом и инновациями, и мы воплощаем эту
           страсть в каждой создаваемой нами сумке.
         </p>
       </div>
 
-      <div className="sd-block-three__content">
-        <article className="sd-block-three__item sd-block-three__item--large">
-          <a href="/product/aqua-layer" className="sd-block-three__visual sd-block-three__visual--large">
+      <div className="sd_block-three__content">
+        <article className="sd_block-three__item sd_block-three__item--large">
+          <a href="/product/aqua-layer" className="sd_block-three__visual sd_block-three__visual--large">
             <img
-              className="sd-block-three__image sd-block-three__image--large"
+              className="sd_block-three__image sd_block-three__image--large"
               src="/block3/AQUA LAYER.jpg"
               alt="Сумка aqua layer"
               loading="lazy"
               decoding="async"
             />
           </a>
-          <div className="sd-block-three__meta">
-            <div className="sd-block-three__meta-text">
-              <h3 className="sd-block-three__name">aqua layer</h3>
-              <p className="sd-block-three__price">45 000 ₽</p>
+          <div className="sd_block-three__meta">
+            <div className="sd_block-three__meta-text">
+              <h3 className="sd_block-three__name">aqua layer</h3>
+              <p className="sd_block-three__price">45 000 ₽</p>
             </div>
-            <a className="sd-block-three__button" href="/product/aqua-layer">
+            <a className="sd_block-three__button" href="/product/aqua-layer">
               к товару
             </a>
           </div>
         </article>
 
-        <div className="sd-block-three__text-column">
-          <p className="sd-block-three__description">
+        <div className="sd_block-three__text-column">
+          <p className="sd_block-three__description">
             мы любим экспериментировать с современными материалами, технологиями
             и формами, чтобы создавать продукты, которые не только отвечают вашим
             потребностям, но и вдохновляют на новые возможности. вместе мы
@@ -233,22 +233,22 @@ export const SdBlockThreeSection = (): JSX.Element => {
           </p>
         </div>
 
-        <article className="sd-block-three__item sd-block-three__item--small">
-          <a href="/product/spike-candy" className="sd-block-three__visual sd-block-three__visual--small">
+        <article className="sd_block-three__item sd_block-three__item--small">
+          <a href="/product/spike-candy" className="sd_block-three__visual sd_block-three__visual--small">
             <img
-              className="sd-block-three__image sd-block-three__image--small"
+              className="sd_block-three__image sd_block-three__image--small"
               src="/block3/SPIKE CANDY.jpg"
               alt="Сумка spike candy"
               loading="lazy"
               decoding="async"
             />
           </a>
-          <div className="sd-block-three__meta sd-block-three__meta--small">
-            <div className="sd-block-three__meta-text">
-              <h3 className="sd-block-three__name">spike candy</h3>
-              <p className="sd-block-three__price">29 900 ₽</p>
+          <div className="sd_block-three__meta sd_block-three__meta--small">
+            <div className="sd_block-three__meta-text">
+              <h3 className="sd_block-three__name">spike candy</h3>
+              <p className="sd_block-three__price">29 900 ₽</p>
             </div>
-            <a className="sd-block-three__button" href="/product/spike-candy">
+            <a className="sd_block-three__button" href="/product/spike-candy">
               к товару
             </a>
           </div>
@@ -257,4 +257,5 @@ export const SdBlockThreeSection = (): JSX.Element => {
     </section>
   );
 };
+
 
