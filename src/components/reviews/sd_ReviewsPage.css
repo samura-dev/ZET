@@ -1,6 +1,6 @@
 .sd_reviews {
   position: relative;
-  padding: 110px var(--sd_page-gutter) 70px;
+  padding: 110px var(--sd_page_gutter) 70px;
   background:
     linear-gradient(180deg, #f5f2f5 0%, #ece7ec 100%),
     linear-gradient(120deg, rgb(217 134 167 / 6%) 0%, transparent 55%);
@@ -13,7 +13,7 @@
 
 .sd_reviews__hero h1 {
   margin: 0;
-  font-family: var(--sd_font-heading);
+  font-family: var(--sd_font_heading);
   font-size: clamp(42px, 7vw, 88px);
   line-height: 0.9;
   text-transform: lowercase;
@@ -177,7 +177,7 @@
 
 .sd_reviews__form h2 {
   margin: 0 0 6px;
-  font-family: var(--sd_font-heading);
+  font-family: var(--sd_font_heading);
   font-size: 34px;
   line-height: 0.9;
   text-transform: lowercase;
@@ -273,7 +273,7 @@
 
 @media (max-width: 920px) {
   .sd_reviews {
-    padding: 92px var(--sd_page-gutter) 48px;
+    padding: 92px var(--sd_page_gutter) 48px;
   }
 
   .sd_reviews__layout {
@@ -288,4 +288,5 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+
 

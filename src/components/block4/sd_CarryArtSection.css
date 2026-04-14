@@ -1,6 +1,6 @@
 .sd_carry-art {
 	background: #d1839f;
-	padding: clamp(42px, 4vw, 76px) var(--sd_page-gutter) clamp(46px, 4.4vw, 86px);
+	padding: clamp(42px, 4vw, 76px) var(--sd_page_gutter) clamp(46px, 4.4vw, 86px);
 	overflow: clip;
 }
 
@@ -16,7 +16,7 @@
 	display: grid;
 	align-content: center;
 	gap: 6px;
-	font-family: var(--sd_font-heading);
+	font-family: var(--sd_font_heading);
 	font-weight: 500;
 	text-transform: lowercase;
 	color: #f7eef3;
@@ -101,7 +101,7 @@
 
 @media (max-width: 920px) {
 	.sd_carry-art {
-		padding: 34px var(--sd_page-gutter) 44px;
+		padding: 34px var(--sd_page_gutter) 44px;
 	}
 
 	.sd_carry-art__headline {
@@ -124,4 +124,5 @@
 		transform: none !important;
 	}
 }
+
 

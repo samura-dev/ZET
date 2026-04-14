@@ -1,5 +1,5 @@
 .sd_about {
-  padding: 110px var(--sd_page-gutter) 80px;
+  padding: 110px var(--sd_page_gutter) 80px;
   background: linear-gradient(180deg, #f6f4f6 0%, #efebf0 100%);
   display: grid;
   gap: 96px;
@@ -45,12 +45,12 @@
 
 .sd_about__hero-visual h1 {
   position: absolute;
-  left: var(--sd_page-gutter);
-  right: var(--sd_page-gutter);
+  left: var(--sd_page_gutter);
+  right: var(--sd_page_gutter);
   top: 50%;
   width: auto;
   text-align: center;
-  font-family: var(--sd_font-heading);
+  font-family: var(--sd_font_heading);
   font-size: clamp(64px, 9.8vw, 184px);
   text-transform: lowercase;
   color: #111;
@@ -229,7 +229,7 @@
 
 @media (max-width: 920px) {
   .sd_about {
-    padding: 92px var(--sd_page-gutter) 60px;
+    padding: 92px var(--sd_page_gutter) 60px;
     gap: 72px;
   }
 
@@ -266,4 +266,5 @@
     max-width: none;
   }
 }
+
 

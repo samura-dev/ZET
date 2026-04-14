@@ -1,5 +1,5 @@
 .sd_catalog {
-  padding: clamp(46px, 4.2vw, 66px) var(--sd_page-gutter) 88px;
+  padding: clamp(46px, 4.2vw, 66px) var(--sd_page_gutter) 88px;
   background: #d1839f;
 }
 
@@ -14,7 +14,7 @@
 .sd_catalog__tab {
   border: 0;
   background: transparent;
-  font-family: var(--sd_font-heading);
+  font-family: var(--sd_font_heading);
   font-weight: 600;
   letter-spacing: 0.02em;
   text-transform: uppercase;
@@ -126,7 +126,7 @@
   left: 30px;
   top: 80px;
   z-index: 2;
-  font-family: var(--sd_font-heading);
+  font-family: var(--sd_font_heading);
   font-weight: 600;
   font-size: 53px;
   line-height: 0.67;
@@ -163,7 +163,7 @@
 
 .sd_catalog__card-title {
   color: #fff;
-  font-family: var(--sd_font-heading);
+  font-family: var(--sd_font_heading);
   font-size: 30px;
   font-weight: 600;
   text-transform: lowercase;
@@ -244,7 +244,7 @@
 
 @media (max-width: 920px) {
   .sd_catalog {
-    padding: 34px var(--sd_page-gutter) 50px;
+    padding: 34px var(--sd_page_gutter) 50px;
   }
 
   .sd_catalog__tabs {
@@ -327,4 +327,5 @@
     font-size: 15px;
   }
 }
+
 

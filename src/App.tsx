@@ -69,28 +69,18 @@ const App = (): JSX.Element => {
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   };
 
-  if (sd_pathname === "/checkout") {
-    return (
-      <>
-        <SdGlobalHeader />
+  return (
+    <>
+      <SdGlobalHeader />
+      {sd_pathname === "/checkout" ? (
         <SdCheckoutSection
           onBackHome={() => {
             sd_navigate("/");
           }}
         />
-        <SdFooterSection />
-      </>
-    );
-  }
-
-  if (sd_pathname.startsWith("/product/")) {
-    const sd_slug = decodeURIComponent(sd_pathname.replace("/product/", "").trim());
-
-    return (
-      <>
-        <SdGlobalHeader />
+      ) : sd_pathname.startsWith("/product/") ? (
         <SdProductPage
-          slug={sd_slug}
+          slug={decodeURIComponent(sd_pathname.replace("/product/", "").trim())}
           onBackHome={() => {
             sd_navigate("/");
           }}
@@ -98,51 +88,24 @@ const App = (): JSX.Element => {
             sd_navigate("/checkout");
           }}
         />
-        <SdFooterSection />
-      </>
-    );
-  }
-
-  if (sd_pathname === "/about") {
-    return (
-      <>
-        <SdGlobalHeader />
+      ) : sd_pathname === "/about" ? (
         <SdAboutPage />
-        <SdFooterSection />
-      </>
-    );
-  }
-
-  if (sd_pathname === "/contacts") {
-    return (
-      <>
-        <SdGlobalHeader />
+      ) : sd_pathname === "/contacts" ? (
         <SdContactsPage />
-        <SdFooterSection />
-      </>
-    );
-  }
-
-  if (sd_pathname === "/reviews") {
-    return (
-      <>
-        <SdGlobalHeader />
+      ) : sd_pathname === "/reviews" ? (
         <SdReviewsPage />
-        <SdFooterSection />
-      </>
-    );
-  }
-
-  return (
-    <>
-      <SdHeroSection
-        onCheckoutOpen={() => {
-          sd_navigate("/checkout");
-        }}
-      />
-      <SdCatalogSection />
-      <SdBlockThreeSection />
-      <SdCarryArtSection />
+      ) : (
+        <>
+          <SdHeroSection
+            onCheckoutOpen={() => {
+              sd_navigate("/checkout");
+            }}
+          />
+          <SdCatalogSection />
+          <SdBlockThreeSection />
+          <SdCarryArtSection />
+        </>
+      )}
       <SdFooterSection />
     </>
   );

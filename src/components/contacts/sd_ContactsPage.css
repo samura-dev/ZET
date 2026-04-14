@@ -1,7 +1,7 @@
 .sd_contacts {
   position: relative;
   isolation: isolate;
-  padding: 110px var(--sd_page-gutter) 70px;
+  padding: 110px var(--sd_page_gutter) 70px;
   background:
     radial-gradient(64% 56% at 100% 0%, rgb(217 134 167 / 22%) 0%, rgb(217 134 167 / 0%) 72%),
     radial-gradient(38% 32% at 12% 18%, rgb(88 72 103 / 10%) 0%, rgb(88 72 103 / 0%) 90%),
@@ -23,7 +23,7 @@
 
 .sd_contacts__hero h1 {
   margin: 8px 0 0;
-  font-family: var(--sd_font-heading);
+  font-family: var(--sd_font_heading);
   font-size: clamp(42px, 7vw, 88px);
   line-height: 0.9;
   text-transform: lowercase;
@@ -68,7 +68,7 @@
 
 .sd_contacts__card h2 {
   margin: 0;
-  font-family: var(--sd_font-heading);
+  font-family: var(--sd_font_heading);
   font-size: 34px;
   text-transform: lowercase;
   line-height: 1;
@@ -121,7 +121,7 @@
 
 @media (max-width: 920px) {
   .sd_contacts {
-    padding: 92px var(--sd_page-gutter) 48px;
+    padding: 92px var(--sd_page_gutter) 48px;
   }
 
   .sd_contacts__grid {
@@ -137,4 +137,5 @@
     font-size: 16px;
   }
 }
+
 
