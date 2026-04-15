@@ -27,9 +27,15 @@ const sd_slugify = (sd_value: string): string =>
     .replace(/[^a-z0-9-]/g, "");
 
 const sd_normalizeImagePath = (sd_path: string): string => {
-  if (!sd_path.startsWith("/bags/")) return sd_path;
+  if (!sd_path.startsWith("/bags/")) {
+    return sd_path;
+  }
+
   const sd_file = sd_path.replace("/bags/", "");
-  if (!sd_file.includes(" ")) return sd_path;
+  if (!sd_file.includes(" ")) {
+    return sd_path;
+  }
+
   return `/bags/${encodeURIComponent(sd_file)}`;
 };
 
@@ -52,7 +58,11 @@ export const sd_getProductsByCategory = (sd_category: sd_ProductCategory): sd_Pr
 
 export const sd_getRelatedProducts = (sd_slug: string, sd_limit = 3): sd_Product[] => {
   const sd_current = sd_getProductBySlug(sd_slug);
-  if (!sd_current) return sd_products.slice(0, sd_limit);
+
+  if (!sd_current) {
+    return sd_products.slice(0, sd_limit);
+  }
+
   return sd_products
     .filter((sd_product) => sd_product.slug !== sd_slug)
     .sort((sd_a, sd_b) => {
@@ -64,6 +74,7 @@ export const sd_getRelatedProducts = (sd_slug: string, sd_limit = 3): sd_Product
         Number(sd_b.category === sd_current.category) +
         Number(sd_b.isBest === sd_current.isBest) +
         Number(sd_b.isNew === sd_current.isNew);
+
       return sd_bScore - sd_aScore;
     })
     .slice(0, sd_limit);

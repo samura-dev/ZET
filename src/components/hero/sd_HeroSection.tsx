@@ -1,24 +1,89 @@
-
 import { SdHeroBagViewer } from "./sd_HeroBagViewer";
 import "./sd_HeroSection.css";
 
-export const SdHeroSection = ({ onCheckoutOpen }) => (
-  <section className="sd_hero">
-    <div className="sd_hero__background_glow" />
-    <div className="sd_hero__marquee">
-      <div className="sd_hero__marquee_track">
-        {Array(10).fill("FUTURISM IN EVERY FOLD ").map((t, i) => <span key={i} className="sd_hero__marquee_text">{t}</span>)}
+const sd_MARQUEE_TEXT = "FUTURISM IN EVERY FOLD";
+
+const sd_marqueeItems: string[] = [
+  sd_MARQUEE_TEXT,
+  sd_MARQUEE_TEXT,
+  sd_MARQUEE_TEXT,
+  sd_MARQUEE_TEXT,
+  sd_MARQUEE_TEXT,
+  sd_MARQUEE_TEXT
+];
+
+type sd_HeroSectionProps = {
+  onCheckoutOpen?: () => void;
+};
+
+export const SdHeroSection = ({ onCheckoutOpen }: sd_HeroSectionProps): JSX.Element => {
+  return (
+    <section className="sd_hero" aria-label="Главный экран HUSH">
+      <div className="sd_hero__background_glow" aria-hidden="true" />
+
+      {/* Хедер удален, так как теперь используется SdGlobalHeader */}
+
+      <div className="sd_hero__marquee" aria-hidden>
+        <div className="sd_hero__marquee_track">
+          {sd_marqueeItems.map((sd_item, sd_index) => (
+            <span className="sd_hero__marquee_text" key={`sd_marquee_${sd_index}`}>
+              {sd_item}
+            </span>
+          ))}
+        </div>
+        <div className="sd_hero__marquee_track" aria-hidden>
+          {sd_marqueeItems.map((sd_item, sd_index) => (
+            <span className="sd_hero__marquee_text" key={`sd_marquee_copy_${sd_index}`}>
+              {sd_item}
+            </span>
+          ))}
+        </div>
       </div>
-    </div>
-    <div className="sd_hero__bag_container">
-      <SdHeroBagViewer frameCount={240} durationMs={8000} frameDirectory="/output" framePrefix="ezgif-frame-" frameExtension="png" framePadLength={3} className="sd_hero__bag_viewer" />
-    </div>
-    <div className="sd_hero__info">
-      <p className="sd_hero__info_text">{"\u043a\u0430\u0436\u0434\u0430\u044f \u0441\u0443\u043c\u043a\u0430 hush brand \u2014 \u044d\u0442\u043e \u0438\u0434\u0435\u0430\u043b\u044c\u043d\u043e\u0435 \u0441\u043e\u0447\u0435\u0442\u0430\u043d\u0438\u0435 \u043a\u0440\u0435\u0430\u0442\u0438\u0432\u043d\u043e\u0441\u0442\u0438 \u0438 \u043f\u0440\u0430\u043a\u0442\u0438\u0447\u043d\u043e\u0441\u0442\u0438."}</p>
-      <div className="sd_hero__actions">
-        <button className="sd_hero__button_main" onClick={() => window.location.href="#catalog"}>{"\u043a\u0443\u043f\u0438\u0442\u044c \u0441\u0435\u0439\u0447\u0430\u0441"}</button>
-        <button className="sd_hero__button_arrow" onClick={onCheckoutOpen}>?</button>
+
+      <div className="sd_hero__bag_container">
+        <SdHeroBagViewer
+          frameCount={240}
+          durationMs={8000}
+          frameDirectory="/output"
+          framePrefix="ezgif-frame-"
+          frameExtension="png"
+          framePadLength={3}
+          className="sd_hero__bag_viewer"
+        />
       </div>
-    </div>
-  </section>
-);
+
+      <div className="sd_hero__info">
+        <p className="sd_hero__info_text">
+          each hush brand bag is the perfect combination of creativity and practicality.
+        </p>
+        <div className="sd_hero__actions">
+          <a className="sd_hero__button_main" href="/about">
+            <span className="sd_hero__button_main_text">узнать больше</span>
+          </a>
+          <button 
+            className="sd_hero__button_arrow" 
+            type="button" 
+            aria-label="Открыть корзину"
+            onClick={onCheckoutOpen}
+          >
+            <svg
+              className="sd_hero__button_arrow_icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden
+            >
+              <path
+                d="M5 12H18.5M18.5 12L13 6.5M18.5 12L13 17.5"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+};
