@@ -727,7 +727,7 @@
 
 @media (max-width: 920px) {
 	.sd_hero {
-		padding: 12px var(--sd_page_gutter) 20px;
+		padding: 14px var(--sd_page_gutter) 24px;
 		min-height: 100vh;
 	}
 
@@ -806,22 +806,35 @@
 		right: auto !important;
 		transform: none !important;
 		width: 100% !important;
-		margin-top: 260px;
+		margin-top: 26px;
 	}
 
 	.sd_hero__info_text {
-		font-size: 20px;
+		font-size: 19px;
+		line-height: 1.2;
 		text-align: center;
 	}
 
 	.sd_hero__actions {
 		display: flex;
 		justify-content: center;
+		align-items: center;
 		width: 100%;
 	}
 
 	.sd_hero__button_main {
 		flex: 1;
+		max-width: 260px;
+	}
+
+	.sd_hero__bag_container {
+		position: relative;
+		left: auto;
+		top: auto;
+		transform: none;
+		width: min(92vw, 430px);
+		min-width: 0;
+		margin: 190px auto 0;
 	}
 
 	.sd_hero__search_panel {
@@ -829,5 +842,13 @@
 		left: 10px;
 		right: 10px;
 		width: calc(100% - 20px);
+	}
+
+	.sd_hero__marquee {
+		top: 56%;
+	}
+
+	.sd_hero__marquee_text {
+		font-size: clamp(56px, 18vw, 92px);
 	}
 }
