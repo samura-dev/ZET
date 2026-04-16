@@ -190,7 +190,7 @@ export const SdCheckoutSection = ({ onBackHome }: sd_CheckoutSectionProps): JSX.
             {sd_items.length === 0 ? (
               <div className="sd_checkout__empty">
                 <p>ваша корзина пуста</p>
-                <button type="button" onClick={onBackHome}>перейти к покупкам</button>
+                <button className="sd_checkout__empty_button" type="button" onClick={onBackHome}>перейти к покупкам</button>
               </div>
             ) : (
               sd_items.map((sd_item) => (
