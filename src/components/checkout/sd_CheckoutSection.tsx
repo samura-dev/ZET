@@ -125,18 +125,6 @@ export const SdCheckoutSection = ({ onBackHome }: sd_CheckoutSectionProps): JSX.
     <section className="sd_checkout">
       <div className="sd_checkout__glow" />
 
-      <div className="sd_checkout__stripe">
-        <div className="sd_checkout__stripe_track">
-          {[1, 2, 3, 4, 5, 6].map((sd_index) => (
-            <div key={sd_index} className="sd_checkout__stripe_item">CHECKOUT • HUSH PREMIUM</div>
-          ))}
-        </div>
-      </div>
-
-      <div className="sd_checkout__topline">
-        <button className="sd_checkout__back" type="button" onClick={onBackHome}>← назад</button>
-      </div>
-
       <header className="sd_checkout__header">
         <div className="sd_checkout__header_main">
           <h1 className="sd_checkout__title">оформление заказа</h1>
@@ -230,7 +218,7 @@ export const SdCheckoutSection = ({ onBackHome }: sd_CheckoutSectionProps): JSX.
           <div className="sd_checkout__summary">
             <div className="sd_checkout__promo" style={{ marginBottom: "16px" }}>
               <input className="sd_checkout__input" placeholder="промокод" name="sd_promoCode" value={sd_formData.sd_promoCode} onChange={sd_handleInputChange} />
-              <button type="button" onClick={sd_applyPromo}>применить</button>
+              <button className="sd_checkout__promo_apply" type="button" onClick={sd_applyPromo}>применить</button>
               {sd_promoError ? <p className="sd_checkout__promo_message sd_checkout__promo_message--error">{sd_promoError}</p> : null}
               {sd_appliedPromo ? <p className="sd_checkout__promo_message sd_checkout__promo_message--success">скидка 10% применена</p> : null}
             </div>
