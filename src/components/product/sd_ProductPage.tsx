@@ -25,7 +25,7 @@ export const SdProductPage = ({ slug, onBackHome, onOpenCheckout }: sd_ProductPa
       return;
     }
     const sd_timeline = gsap.timeline({ defaults: { ease: "power3.out" } });
-    sd_timeline.from(".sd_product__breadcrumbs", { y: 12, opacity: 0, duration: 0.38, clearProps: "all" }).from(".sd_product__media", { y: 16, opacity: 0, duration: 0.44, clearProps: "all" }, "-=0.18").from(".sd_product__content", { y: 16, opacity: 0, duration: 0.46, clearProps: "all" }, "-=0.3");
+    sd_timeline.from(".sd_product__media", { y: 16, opacity: 0, duration: 0.44, clearProps: "all" }).from(".sd_product__content", { y: 16, opacity: 0, duration: 0.46, clearProps: "all" }, "-=0.3");
     return () => { sd_timeline.kill(); };
   }, [sd_product]);
 
@@ -55,7 +55,6 @@ export const SdProductPage = ({ slug, onBackHome, onOpenCheckout }: sd_ProductPa
 
   return (
     <section className="sd_product" aria-label={`Страница товара ${sd_product.title}`}>
-      <div className="sd_product__breadcrumbs"><button className="sd_product__crumb-button" type="button" onClick={() => onBackHome?.()}>← каталог</button><span>/</span><span>{sd_product.title}</span></div>
       <div className="sd_product__layout">
         <div className="sd_product__media"><div className="sd_product__main-image-wrap"><img className="sd_product__main-image" src={sd_product.images[0]} alt={`Сумка ${sd_product.title}`} /></div></div>
         <div className="sd_product__content">

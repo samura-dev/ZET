@@ -78,11 +78,10 @@ export const SdContactsPage = (): JSX.Element => {
   return (
     <section className="sd_contacts" ref={sd_ref}>
       <header className="sd_contacts__hero">
-        <p className="sd_contacts__eyebrow">HUSH STUDIO / ALWAYS ONLINE</p>
         <h1>контакты</h1>
         <p>
-          Мы на связи каждый день. Отвечаем быстро и по делу: заказ, доставка, подбор модели и
-          консультации по стилизации.
+          Мы на связи каждый день. Отвечаем быстро и по делу: заказ, доставка, подбор модели и консультации по
+          стилизации.
         </p>
       </header>
 
@@ -104,8 +103,7 @@ export const SdContactsPage = (): JSX.Element => {
         <article className="sd_contacts__card sd_contacts__card--cta">
           <h2>нужна помощь со стилем</h2>
           <p>
-            Напишите нам, и стилист бренда соберет подборку под ваш гардероб, настроение и
-            ближайшие события.
+            Напишите нам, и стилист бренда соберет подборку под ваш гардероб, настроение и ближайшие события.
           </p>
           <a href="mailto:style@hush-zet.ru">написать стилисту</a>
         </article>
@@ -113,4 +111,3 @@ export const SdContactsPage = (): JSX.Element => {
     </section>
   );
 };
-

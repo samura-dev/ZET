@@ -15,7 +15,7 @@ const sd_footerMenu = [
 const sd_footerContacts = [
   { label: "instagram", href: "#" },
   { label: "telegram", href: "#" },
-  { label: "почта", href: "mailto:hello@hush-bags.com" }
+  { label: "почта", href: "mailto:hello@hush-zet.ru" }
 ];
 
 const sd_footerTicker = [
@@ -41,14 +41,11 @@ export const SdFooterSection = (): JSX.Element => {
     const sd_prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     const sd_ctx = gsap.context(() => {
-      const sd_top = sd_footer.querySelector<HTMLElement>(".sd_footer__top");
-      const sd_content = sd_footer.querySelector<HTMLElement>(".sd_footer__content");
-      const sd_bottom = sd_footer.querySelector<HTMLElement>(".sd_footer__bottom");
       const sd_tickerTrack = sd_footer.querySelector<HTMLElement>(".sd_footer__ticker-track");
       const sd_orbLeft = sd_footer.querySelector<HTMLElement>(".sd_footer__orb--left");
       const sd_orbRight = sd_footer.querySelector<HTMLElement>(".sd_footer__orb--right");
 
-      if (!sd_top || !sd_content || !sd_bottom || !sd_tickerTrack || !sd_orbLeft || !sd_orbRight) {
+      if (!sd_tickerTrack || !sd_orbLeft || !sd_orbRight) {
         return;
       }
 

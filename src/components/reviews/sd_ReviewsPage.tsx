@@ -17,18 +17,18 @@ const sd_STORAGE_KEY = "sd_reviews_v1";
 const sd_defaultReviews: sd_Review[] = [
   {
     id: "r1",
-    name: "Анастасия",
+    name: "РђРЅР°СЃС‚Р°СЃРёСЏ",
     productSlug: "vex-metal",
     rating: 5,
-    text: "Очень удобная форма, вживую выглядит даже лучше. Материал приятный и не маркий.",
+    text: "РћС‡РµРЅСЊ СѓРґРѕР±РЅР°СЏ С„РѕСЂРјР°, РІР¶РёРІСѓСЋ РІС‹РіР»СЏРґРёС‚ РґР°Р¶Рµ Р»СѓС‡С€Рµ. РњР°С‚РµСЂРёР°Р» РїСЂРёСЏС‚РЅС‹Р№ Рё РЅРµ РјР°СЂРєРёР№.",
     createdAt: "2026-03-22"
   },
   {
     id: "r2",
-    name: "Ирина",
+    name: "РСЂРёРЅР°",
     productSlug: "blue-arc",
     rating: 4,
-    text: "Брала как акцентный аксессуар — отлично собрал образ. Хочется больше цветов.",
+    text: "Р‘СЂР°Р»Р° РєР°Рє Р°РєС†РµРЅС‚РЅС‹Р№ Р°РєСЃРµСЃСЃСѓР°СЂ, РѕС‚Р»РёС‡РЅРѕ СЃРѕР±СЂР°Р» РѕР±СЂР°Р·. РҐРѕС‡РµС‚СЃСЏ Р±РѕР»СЊС€Рµ С†РІРµС‚РѕРІ.",
     createdAt: "2026-03-18"
   }
 ];
@@ -56,7 +56,7 @@ export const SdReviewsPage = (): JSX.Element => {
         sd_setReviews(sd_parsed);
       }
     } catch {
-      // Игнорируем битый localStorage и оставляем дефолтные отзывы.
+      // РРіРЅРѕСЂРёСЂСѓРµРј Р±РёС‚С‹Р№ localStorage Рё РѕСЃС‚Р°РІР»СЏРµРј РґРµС„РѕР»С‚РЅС‹Рµ РѕС‚Р·С‹РІС‹.
     }
   }, []);
 
@@ -146,10 +146,10 @@ export const SdReviewsPage = (): JSX.Element => {
   );
 
   return (
-    <section className="sd_reviews" aria-label="Отзывы" ref={sd_rootRef}>
+    <section className="sd_reviews" aria-label="РћС‚Р·С‹РІС‹" ref={sd_rootRef}>
       <header className="sd_reviews__hero">
-        <h1>отзывы</h1>
-        <p>Реальные мнения клиентов о моделях HUSH / ZET.</p>
+        <h1>РѕС‚Р·С‹РІС‹</h1>
+        <p>Р РµР°Р»СЊРЅС‹Рµ РјРЅРµРЅРёСЏ РєР»РёРµРЅС‚РѕРІ Рѕ РјРѕРґРµР»СЏС… HUSH / ZET.</p>
       </header>
 
       <div className="sd_reviews__layout">
@@ -160,10 +160,10 @@ export const SdReviewsPage = (): JSX.Element => {
                 <strong>{sd_review.name}</strong>
                 <span>{new Date(sd_review.createdAt).toLocaleDateString("ru-RU")}</span>
               </div>
-              <p className="sd_reviews__item-product">товар: {sd_review.product?.title ?? sd_review.productSlug}</p>
+              <p className="sd_reviews__item-product">С‚РѕРІР°СЂ: {sd_review.product?.title ?? sd_review.productSlug}</p>
               <p className="sd_reviews__item-rating">
-                рейтинг:
-                <span className="sd_reviews__rating-pill" aria-label={`Рейтинг ${sd_review.rating} из 5`}>
+                СЂРµР№С‚РёРЅРі:
+                <span className="sd_reviews__rating-pill" aria-label={`Р РµР№С‚РёРЅРі ${sd_review.rating} РёР· 5`}>
                   {sd_review.rating}
                 </span>
                 <span>/5</span>
@@ -174,13 +174,13 @@ export const SdReviewsPage = (): JSX.Element => {
         </div>
 
         <form className="sd_reviews__form" onSubmit={sd_handleSubmit}>
-          <h2>оставить отзыв</h2>
+          <h2>РѕСЃС‚Р°РІРёС‚СЊ РѕС‚Р·С‹РІ</h2>
           <label>
-            имя
+            РёРјСЏ
             <input value={sd_name} onChange={(sd_event) => sd_setName(sd_event.target.value)} />
           </label>
           <label>
-            товар
+            С‚РѕРІР°СЂ
             <div className="sd_reviews__select" ref={sd_productMenuRef}>
               <button
                 className={
@@ -193,9 +193,9 @@ export const SdReviewsPage = (): JSX.Element => {
                   sd_setIsProductMenuOpen((sd_prev) => !sd_prev);
                 }}
               >
-                <span>{sd_selectedProduct?.title ?? "выберите товар"}</span>
+                <span>{sd_selectedProduct?.title ?? "РІС‹Р±РµСЂРёС‚Рµ С‚РѕРІР°СЂ"}</span>
                 <span className="sd_reviews__select-chevron" aria-hidden>
-                  ?
+                  v
                 </span>
               </button>
               {sd_isProductMenuOpen ? (
@@ -222,8 +222,8 @@ export const SdReviewsPage = (): JSX.Element => {
             </div>
           </label>
           <fieldset className="sd_reviews__rating-fieldset">
-            <legend>рейтинг (0–5)</legend>
-            <div className="sd_reviews__rating-grid" role="radiogroup" aria-label="Выбор рейтинга">
+            <legend>СЂРµР№С‚РёРЅРі (0-5)</legend>
+            <div className="sd_reviews__rating-grid" role="radiogroup" aria-label="Р’С‹Р±РѕСЂ СЂРµР№С‚РёРЅРіР°">
               {sd_ratingSteps.map((sd_step) => (
                 <button
                   key={sd_step}
@@ -245,13 +245,12 @@ export const SdReviewsPage = (): JSX.Element => {
             </div>
           </fieldset>
           <label>
-            отзыв
+            РѕС‚Р·С‹РІ
             <textarea value={sd_text} onChange={(sd_event) => sd_setText(sd_event.target.value)} />
           </label>
-          <button type="submit">добавить отзыв</button>
+          <button type="submit">РґРѕР±Р°РІРёС‚СЊ РѕС‚Р·С‹РІ</button>
         </form>
       </div>
     </section>
   );
 };
-
