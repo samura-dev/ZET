@@ -1,4 +1,4 @@
-.sd_global_header {
+﻿.sd_global_header {
   position: fixed;
   inset: 0;
   z-index: 2000;
@@ -56,7 +56,7 @@
 }
 
 .sd_global_header__menu_item::after {
-  content: "→";
+  content: "\\2192";
   position: absolute;
   right: -18px;
   top: 50%;
@@ -490,9 +490,10 @@
     inset: 0;
     background: rgb(253 243 248 / 98%);
     backdrop-filter: blur(24px);
-    z-index: 1002;
+    z-index: 2600;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     padding: 60px 20px;
     opacity: 0;
     visibility: hidden;
@@ -511,6 +512,8 @@
   .sd_global_header__menu_item {
     font-size: 36px;
     font-weight: 700;
+    justify-content: center;
+    text-align: center;
   }
 
   .sd_global_header__menu_item::after {
@@ -530,12 +533,14 @@
     height: 44px;
     border-radius: 50%;
     border: 0;
-    background: rgb(255 255 255 / 44%);
-    color: #111;
+    background: rgb(23 17 25 / 82%);
+    color: #fff;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    z-index: 2601;
+    box-shadow: 0 10px 24px rgb(0 0 0 / 22%);
   }
 
   .sd_global_header__menu_close svg {
@@ -557,6 +562,11 @@
     top: 0;
     right: 0;
     gap: 8px;
+  }
+
+  .sd_global_header--menu_open .sd_global_header__tools {
+    opacity: 0;
+    pointer-events: none;
   }
 
   .sd_global_header__tool_button {
@@ -589,3 +599,4 @@
     text-shadow: 0 0 0 rgb(217 134 167 / 0%);
   }
 }
+
