@@ -254,16 +254,36 @@
 
   .sd_footer__content {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 14px;
     padding-top: 22px;
   }
 
   .sd_footer__column {
     min-height: 0;
+    padding: 14px 0;
+    border-top: 1px solid rgb(255 255 255 / 12%);
+  }
+
+  .sd_footer__column:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+
+  .sd_footer__column-title {
+    margin-bottom: 12px;
   }
 
   .sd_footer__link {
     font-size: 24px;
+  }
+
+  .sd_footer__list {
+    gap: 10px;
+  }
+
+  .sd_footer__meta {
+    font-size: 18px;
+    line-height: 1.35;
   }
 
   .sd_footer__bottom {

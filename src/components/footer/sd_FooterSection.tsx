@@ -47,69 +47,14 @@ export const SdFooterSection = (): JSX.Element => {
       const sd_tickerTrack = sd_footer.querySelector<HTMLElement>(".sd_footer__ticker-track");
       const sd_orbLeft = sd_footer.querySelector<HTMLElement>(".sd_footer__orb--left");
       const sd_orbRight = sd_footer.querySelector<HTMLElement>(".sd_footer__orb--right");
-      const sd_columns = sd_footer.querySelectorAll<HTMLElement>(".sd_footer__column");
 
       if (!sd_top || !sd_content || !sd_bottom || !sd_tickerTrack || !sd_orbLeft || !sd_orbRight) {
         return;
       }
 
       if (sd_prefersReducedMotion) {
-        gsap.set([sd_top, sd_content, sd_bottom, sd_columns], {
-          autoAlpha: 1,
-          clearProps: "transform"
-        });
         return;
       }
-
-      gsap.set([sd_top, sd_content, sd_bottom], { autoAlpha: 0, y: 42 });
-      gsap.set(sd_columns, { autoAlpha: 0, y: 30 });
-
-      const sd_introTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sd_footer,
-          start: "top 80%",
-          once: true
-        }
-      });
-
-      sd_introTl
-        .to(sd_top, {
-          autoAlpha: 1,
-          y: 0,
-          duration: 0.9,
-          ease: "power3.out"
-        })
-        .to(
-          sd_content,
-          {
-            autoAlpha: 1,
-            y: 0,
-            duration: 0.9,
-            ease: "power3.out"
-          },
-          "-=0.52"
-        )
-        .to(
-          sd_columns,
-          {
-            autoAlpha: 1,
-            y: 0,
-            duration: 0.8,
-            stagger: 0.12,
-            ease: "power3.out"
-          },
-          "-=0.6"
-        )
-        .to(
-          sd_bottom,
-          {
-            autoAlpha: 1,
-            y: 0,
-            duration: 0.75,
-            ease: "power3.out"
-          },
-          "-=0.56"
-        );
 
       gsap.to(sd_tickerTrack, {
         xPercent: -50,

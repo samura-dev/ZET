@@ -56,7 +56,7 @@
 }
 
 .sd_global_header__menu_item::after {
-  content: "\\2192";
+  content: "→";
   position: absolute;
   right: -18px;
   top: 50%;
@@ -565,6 +565,11 @@
   }
 
   .sd_global_header--menu_open .sd_global_header__tools {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .sd_global_header--menu_open .sd_global_header__burger {
     opacity: 0;
     pointer-events: none;
   }
