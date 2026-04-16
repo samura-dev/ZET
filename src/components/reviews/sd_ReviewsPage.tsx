@@ -33,6 +33,19 @@ const sd_defaultReviews: sd_Review[] = [
   }
 ];
 
+const sd_hasMojibake = (sd_value: string): boolean => {
+  return sd_value.includes("�") || /[РС][\u0400-\u040F\u0450-\u045F]/.test(sd_value);
+};
+
+const sd_isReviewBroken = (sd_review: sd_Review): boolean => {
+  return (
+    sd_hasMojibake(sd_review.name) ||
+    sd_hasMojibake(sd_review.productSlug) ||
+    sd_hasMojibake(sd_review.text) ||
+    sd_hasMojibake(sd_review.createdAt)
+  );
+};
+
 export const SdReviewsPage = (): JSX.Element => {
   const sd_rootRef = useRef<HTMLElement | null>(null);
   const sd_productMenuRef = useRef<HTMLDivElement | null>(null);
@@ -52,9 +65,17 @@ export const SdReviewsPage = (): JSX.Element => {
       }
 
       const sd_parsed = JSON.parse(sd_raw) as sd_Review[];
-      if (Array.isArray(sd_parsed) && sd_parsed.length > 0) {
-        sd_setReviews(sd_parsed);
+      if (!Array.isArray(sd_parsed) || sd_parsed.length === 0) {
+        return;
       }
+
+      const sd_hasBroken = sd_parsed.some((sd_review) => sd_isReviewBroken(sd_review));
+      if (sd_hasBroken) {
+        window.localStorage.removeItem(sd_STORAGE_KEY);
+        return;
+      }
+
+      sd_setReviews(sd_parsed);
     } catch {
       // Игнорируем битый localStorage и оставляем дефолтные отзывы.
     }
@@ -140,6 +161,7 @@ export const SdReviewsPage = (): JSX.Element => {
       })),
     [sd_reviews]
   );
+
   const sd_selectedProduct = useMemo(
     () => sd_products.find((sd_product) => sd_product.slug === sd_productSlug),
     [sd_productSlug]
