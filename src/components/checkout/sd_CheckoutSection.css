@@ -254,6 +254,7 @@
   grid-template-columns: 1fr auto;
   gap: 10px;
   align-items: center;
+  margin-bottom: 24px;
 }
 
 .sd_checkout__promo_apply {
@@ -516,6 +517,7 @@
 
   .sd_checkout__promo {
     grid-template-columns: 1fr auto;
+    margin-bottom: 20px;
   }
 
   .sd_checkout__order_item_row {

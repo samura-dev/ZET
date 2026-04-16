@@ -214,7 +214,7 @@ export const SdCheckoutSection = ({ onBackHome }: sd_CheckoutSectionProps): JSX.
           </div>
 
           <div className="sd_checkout__summary">
-            <div className="sd_checkout__promo" style={{ marginBottom: "16px" }}>
+            <div className="sd_checkout__promo">
               <input className="sd_checkout__input" placeholder="промокод" name="sd_promoCode" value={sd_formData.sd_promoCode} onChange={sd_handleInputChange} />
               <button className="sd_checkout__promo_apply" type="button" onClick={sd_applyPromo}>применить</button>
               {sd_promoError ? <p className="sd_checkout__promo_message sd_checkout__promo_message--error">{sd_promoError}</p> : null}
