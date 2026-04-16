@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+﻿import { useState } from "react";
 import { sd_useCartStore } from "../../store/sd_useCartStore";
 import "./sd_CheckoutSection.css";
 
@@ -134,7 +134,7 @@ export const SdCheckoutSection = ({ onBackHome }: sd_CheckoutSectionProps): JSX.
       </div>
 
       <div className="sd_checkout__topline">
-        <button className="sd_checkout__back" onClick={onBackHome}>← назад</button>
+        <button className="sd_checkout__back" type="button" onClick={onBackHome}>← назад</button>
       </div>
 
       <header className="sd_checkout__header">
@@ -153,36 +153,17 @@ export const SdCheckoutSection = ({ onBackHome }: sd_CheckoutSectionProps): JSX.
             <div className="sd_checkout__fields">
               <div className="sd_checkout__field">
                 <span>имя и фамилия</span>
-                <input
-                  className={sd_errors.sd_fullName ? "sd_checkout__input sd_checkout__input--error" : "sd_checkout__input"}
-                  name="sd_fullName"
-                  value={sd_formData.sd_fullName}
-                  onChange={sd_handleInputChange}
-                  placeholder="иван иванов"
-                />
+                <input className={sd_errors.sd_fullName ? "sd_checkout__input sd_checkout__input--error" : "sd_checkout__input"} name="sd_fullName" value={sd_formData.sd_fullName} onChange={sd_handleInputChange} placeholder="иван иванов" />
                 {sd_errors.sd_fullName ? <p className="sd_checkout__field_error">{sd_errors.sd_fullName}</p> : null}
               </div>
               <div className="sd_checkout__field">
                 <span>email</span>
-                <input
-                  className={sd_errors.sd_email ? "sd_checkout__input sd_checkout__input--error" : "sd_checkout__input"}
-                  name="sd_email"
-                  type="email"
-                  value={sd_formData.sd_email}
-                  onChange={sd_handleInputChange}
-                  placeholder="example@mail.com"
-                />
+                <input className={sd_errors.sd_email ? "sd_checkout__input sd_checkout__input--error" : "sd_checkout__input"} name="sd_email" type="email" value={sd_formData.sd_email} onChange={sd_handleInputChange} placeholder="example@mail.com" />
                 {sd_errors.sd_email ? <p className="sd_checkout__field_error">{sd_errors.sd_email}</p> : null}
               </div>
               <div className="sd_checkout__field sd_checkout__field--full">
                 <span>телефон</span>
-                <input
-                  className={sd_errors.sd_phone ? "sd_checkout__input sd_checkout__input--error" : "sd_checkout__input"}
-                  name="sd_phone"
-                  value={sd_formData.sd_phone}
-                  onChange={sd_handleInputChange}
-                  placeholder="+7 (___) ___-__-__"
-                />
+                <input className={sd_errors.sd_phone ? "sd_checkout__input sd_checkout__input--error" : "sd_checkout__input"} name="sd_phone" value={sd_formData.sd_phone} onChange={sd_handleInputChange} placeholder="+7 (___) ___-__-__" />
                 {sd_errors.sd_phone ? <p className="sd_checkout__field_error">{sd_errors.sd_phone}</p> : null}
               </div>
             </div>
@@ -191,32 +172,14 @@ export const SdCheckoutSection = ({ onBackHome }: sd_CheckoutSectionProps): JSX.
           <div className="sd_checkout__group">
             <h2 className="sd_checkout__group_title">способ доставки</h2>
             <div className="sd_checkout__choices">
-              <button
-                type="button"
-                className={sd_formData.sd_deliveryMethod === "courier" ? "sd_checkout__choice sd_checkout__choice--active" : "sd_checkout__choice"}
-                onClick={() => sd_setFormData((sd_prev) => ({ ...sd_prev, sd_deliveryMethod: "courier" }))}
-              >
-                курьером (500 ₽)
-              </button>
-              <button
-                type="button"
-                className={sd_formData.sd_deliveryMethod === "pickup" ? "sd_checkout__choice sd_checkout__choice--active" : "sd_checkout__choice"}
-                onClick={() => sd_setFormData((sd_prev) => ({ ...sd_prev, sd_deliveryMethod: "pickup" }))}
-              >
-                самовывоз (бесплатно)
-              </button>
+              <button type="button" className={sd_formData.sd_deliveryMethod === "courier" ? "sd_checkout__choice sd_checkout__choice--active" : "sd_checkout__choice"} onClick={() => sd_setFormData((sd_prev) => ({ ...sd_prev, sd_deliveryMethod: "courier" }))}>курьером (500 ₽)</button>
+              <button type="button" className={sd_formData.sd_deliveryMethod === "pickup" ? "sd_checkout__choice sd_checkout__choice--active" : "sd_checkout__choice"} onClick={() => sd_setFormData((sd_prev) => ({ ...sd_prev, sd_deliveryMethod: "pickup" }))}>самовывоз (бесплатно)</button>
             </div>
             {sd_formData.sd_deliveryMethod === "courier" ? (
               <div className="sd_checkout__fields" style={{ marginTop: "12px" }}>
                 <div className="sd_checkout__field sd_checkout__field--full">
                   <span>адрес доставки</span>
-                  <input
-                    className={sd_errors.sd_address ? "sd_checkout__input sd_checkout__input--error" : "sd_checkout__input"}
-                    name="sd_address"
-                    value={sd_formData.sd_address}
-                    onChange={sd_handleInputChange}
-                    placeholder="город, улица, дом, квартира"
-                  />
+                  <input className={sd_errors.sd_address ? "sd_checkout__input sd_checkout__input--error" : "sd_checkout__input"} name="sd_address" value={sd_formData.sd_address} onChange={sd_handleInputChange} placeholder="город, улица, дом, квартира" />
                   {sd_errors.sd_address ? <p className="sd_checkout__field_error">{sd_errors.sd_address}</p> : null}
                 </div>
               </div>
@@ -226,20 +189,8 @@ export const SdCheckoutSection = ({ onBackHome }: sd_CheckoutSectionProps): JSX.
           <div className="sd_checkout__group">
             <h2 className="sd_checkout__group_title">способ оплаты</h2>
             <div className="sd_checkout__choices">
-              <button
-                type="button"
-                className={sd_formData.sd_paymentMethod === "card" ? "sd_checkout__choice sd_checkout__choice--active" : "sd_checkout__choice"}
-                onClick={() => sd_setFormData((sd_prev) => ({ ...sd_prev, sd_paymentMethod: "card" }))}
-              >
-                картой онлайн
-              </button>
-              <button
-                type="button"
-                className={sd_formData.sd_paymentMethod === "cash" ? "sd_checkout__choice sd_checkout__choice--active" : "sd_checkout__choice"}
-                onClick={() => sd_setFormData((sd_prev) => ({ ...sd_prev, sd_paymentMethod: "cash" }))}
-              >
-                при получении
-              </button>
+              <button type="button" className={sd_formData.sd_paymentMethod === "card" ? "sd_checkout__choice sd_checkout__choice--active" : "sd_checkout__choice"} onClick={() => sd_setFormData((sd_prev) => ({ ...sd_prev, sd_paymentMethod: "card" }))}>картой онлайн</button>
+              <button type="button" className={sd_formData.sd_paymentMethod === "cash" ? "sd_checkout__choice sd_checkout__choice--active" : "sd_checkout__choice"} onClick={() => sd_setFormData((sd_prev) => ({ ...sd_prev, sd_paymentMethod: "cash" }))}>при получении</button>
             </div>
           </div>
         </form>
@@ -251,7 +202,7 @@ export const SdCheckoutSection = ({ onBackHome }: sd_CheckoutSectionProps): JSX.
             {sd_items.length === 0 ? (
               <div className="sd_checkout__empty">
                 <p>ваша корзина пуста</p>
-                <button onClick={onBackHome}>перейти к покупкам</button>
+                <button type="button" onClick={onBackHome}>перейти к покупкам</button>
               </div>
             ) : (
               sd_items.map((sd_item) => (
@@ -278,13 +229,7 @@ export const SdCheckoutSection = ({ onBackHome }: sd_CheckoutSectionProps): JSX.
 
           <div className="sd_checkout__summary">
             <div className="sd_checkout__promo" style={{ marginBottom: "16px" }}>
-              <input
-                className="sd_checkout__input"
-                placeholder="промокод"
-                name="sd_promoCode"
-                value={sd_formData.sd_promoCode}
-                onChange={sd_handleInputChange}
-              />
+              <input className="sd_checkout__input" placeholder="промокод" name="sd_promoCode" value={sd_formData.sd_promoCode} onChange={sd_handleInputChange} />
               <button type="button" onClick={sd_applyPromo}>применить</button>
               {sd_promoError ? <p className="sd_checkout__promo_message sd_checkout__promo_message--error">{sd_promoError}</p> : null}
               {sd_appliedPromo ? <p className="sd_checkout__promo_message sd_checkout__promo_message--success">скидка 10% применена</p> : null}
@@ -294,29 +239,17 @@ export const SdCheckoutSection = ({ onBackHome }: sd_CheckoutSectionProps): JSX.
               <span>товары</span>
               <span>{sd_currencyFormatter.format(sd_subtotal)} ₽</span>
             </div>
-            {sd_appliedPromo ? (
-              <div className="sd_checkout__summary_row sd_checkout__summary_row--discount">
-                <span>скидка</span>
-                <span>-{sd_currencyFormatter.format(sd_discountAmount)} ₽</span>
-              </div>
-            ) : null}
+            {sd_appliedPromo ? <div className="sd_checkout__summary_row sd_checkout__summary_row--discount"><span>скидка</span><span>-{sd_currencyFormatter.format(sd_discountAmount)} ₽</span></div> : null}
             <div className="sd_checkout__summary_row">
               <span>доставка</span>
               <span>{sd_currencyFormatter.format(sd_shipping)} ₽</span>
             </div>
-            <div className="sd_checkout__total">
-              итого: {sd_currencyFormatter.format(sd_total)} ₽
-            </div>
-            <button
-              className="sd_checkout__submit"
-              onClick={sd_handleSubmit}
-              disabled={sd_items.length === 0}
-            >
-              подтвердить заказ
-            </button>
+            <div className="sd_checkout__total">итого: {sd_currencyFormatter.format(sd_total)} ₽</div>
+            <button className="sd_checkout__submit" type="submit" disabled={sd_items.length === 0}>подтвердить заказ</button>
           </div>
         </div>
       </div>
     </section>
   );
 };
+
