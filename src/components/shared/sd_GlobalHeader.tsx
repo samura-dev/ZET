@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { sd_useCartStore } from "../../store/sd_useCartStore";
 import sd_productsData from "../../data/sd_products.json";
 import gsap from "gsap";
@@ -17,7 +17,7 @@ export const SdGlobalHeader = (): JSX.Element => {
   const [sd_isCartOpen, sd_setIsCartOpen] = useState(false);
   const [sd_isMobileMenuOpen, sd_setIsMobileMenuOpen] = useState(false);
   const [sd_removingItemIds, sd_setRemovingItemIds] = useState<string[]>([]);
-  
+
   const sd_activePath = window.location.pathname;
   const {
     items: sd_cartItems,
@@ -36,16 +36,23 @@ export const SdGlobalHeader = (): JSX.Element => {
   const sd_totalPrice = sd_getTotalPrice();
 
   const sd_searchResults = useMemo(() => {
-    if (sd_searchQuery.trim().length < 2) return [];
+    if (sd_searchQuery.trim().length < 2) {
+      return [];
+    }
+
     const sd_q = sd_searchQuery.toLowerCase();
-    return sd_products.filter(
-      (p) => p.title.toLowerCase().includes(sd_q) || p.description.toLowerCase().includes(sd_q)
-    ).slice(0, 5);
+    return sd_products
+      .filter(
+        (sd_product) =>
+          sd_product.title.toLowerCase().includes(sd_q) ||
+          sd_product.description.toLowerCase().includes(sd_q)
+      )
+      .slice(0, 5);
   }, [sd_searchQuery, sd_products]);
 
   useEffect(() => {
     if (sd_isSearchOpen) {
-      setTimeout(() => sd_searchInputRef.current?.focus(), 100);
+      window.setTimeout(() => sd_searchInputRef.current?.focus(), 100);
     }
 
     const sd_handleEscape = (sd_event: KeyboardEvent): void => {
@@ -73,19 +80,21 @@ export const SdGlobalHeader = (): JSX.Element => {
   }, [sd_isMobileMenuOpen]);
 
   const sd_handleQuantityChange = (sd_itemId: string, sd_delta: number): void => {
-    const sd_item = sd_cartItems.find((sd_i) => sd_i.id === sd_itemId);
+    const sd_item = sd_cartItems.find((sd_cartItem) => sd_cartItem.id === sd_itemId);
     if (sd_item) {
       sd_updateQuantity(sd_itemId, Math.max(1, sd_item.quantity + sd_delta));
     }
   };
 
   const sd_handleRemoveItem = (sd_itemId: string): void => {
-    if (sd_removingItemIds.includes(sd_itemId)) return;
+    if (sd_removingItemIds.includes(sd_itemId)) {
+      return;
+    }
 
-    sd_setRemovingItemIds((prev) => [...prev, sd_itemId]);
+    sd_setRemovingItemIds((sd_prev) => [...sd_prev, sd_itemId]);
     sd_removeTimersRef.current[sd_itemId] = window.setTimeout(() => {
       sd_removeItem(sd_itemId);
-      sd_setRemovingItemIds((prev) => prev.filter((id) => id !== sd_itemId));
+      sd_setRemovingItemIds((sd_prev) => sd_prev.filter((sd_id) => sd_id !== sd_itemId));
       delete sd_removeTimersRef.current[sd_itemId];
     }, 300);
   };
@@ -107,6 +116,7 @@ export const SdGlobalHeader = (): JSX.Element => {
             className="sd_global_header__menu_close"
             type="button"
             onClick={() => sd_setIsMobileMenuOpen(false)}
+            aria-label="Закрыть меню"
           >
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
               <path d="M18 6L6 18M6 6l12 12" />
@@ -134,20 +144,22 @@ export const SdGlobalHeader = (): JSX.Element => {
               sd_setIsSearchOpen(true);
               sd_setIsCartOpen(false);
             }}
+            aria-label="Открыть поиск"
           >
             <svg viewBox="0 0 24 24" fill="none" width="22" height="22">
               <circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" strokeWidth="1.9" />
               <path d="M15.7 15.7L20 20" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" />
             </svg>
           </button>
-          
-          <button 
+
+          <button
             className="sd_global_header__tool_button"
             type="button"
             onClick={() => {
               sd_setIsCartOpen(true);
               sd_setIsSearchOpen(false);
             }}
+            aria-label="Открыть корзину"
           >
             <div className="sd_global_header__cart_icon_wrapper">
               <svg viewBox="0 0 24 24" fill="none" width="22" height="22">
@@ -155,20 +167,19 @@ export const SdGlobalHeader = (): JSX.Element => {
                 <circle cx="10.2" cy="19" r="1.75" stroke="currentColor" strokeWidth="1.9" />
                 <circle cx="17.2" cy="19" r="1.75" stroke="currentColor" strokeWidth="1.9" />
               </svg>
-              {sd_totalQuantity > 0 && (
+              {sd_totalQuantity > 0 ? (
                 <span className="sd_global_header__cart_badge">{sd_totalQuantity}</span>
-              )}
+              ) : null}
             </div>
           </button>
         </div>
       </header>
 
-      {/* Search Overlay & Panel */}
-      <div 
+      <div
         className={sd_isSearchOpen ? "sd_global_header__search_overlay sd_global_header__search_overlay--open" : "sd_global_header__search_overlay"}
         onClick={() => sd_setIsSearchOpen(false)}
       >
-        <div className="sd_global_header__search_panel" onClick={e => e.stopPropagation()}>
+        <div className="sd_global_header__search_panel" onClick={(sd_event) => sd_event.stopPropagation()}>
           <div className="sd_global_header__search_input_wrapper">
             <svg viewBox="0 0 24 24" fill="none" width="20" height="20" className="sd_global_header__search_panel_icon">
               <circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" strokeWidth="1.9" />
@@ -179,53 +190,60 @@ export const SdGlobalHeader = (): JSX.Element => {
               className="sd_global_header__search_input"
               placeholder="Найти сумку..."
               value={sd_searchQuery}
-              onChange={e => sd_setSearchQuery(e.target.value)}
+              onChange={(sd_event) => sd_setSearchQuery(sd_event.target.value)}
             />
-            <button className="sd_global_header__search_close" onClick={() => sd_setIsSearchOpen(false)}>×</button>
+            <button
+              className="sd_global_header__search_close"
+              onClick={() => sd_setIsSearchOpen(false)}
+              aria-label="Закрыть поиск"
+            >
+              ×
+            </button>
           </div>
 
-          {sd_searchResults.length > 0 && (
+          {sd_searchResults.length > 0 ? (
             <div className="sd_global_header__search_results">
-              {sd_searchResults.map(sd_res => (
-                <a key={sd_res.id} href={`/product/${sd_res.id}`} className="sd_global_header__search_result_item">
-                  <img src={sd_res.images[0]} alt="" />
+              {sd_searchResults.map((sd_result) => (
+                <a key={sd_result.id} href={`/product/${sd_result.slug}`} className="sd_global_header__search_result_item">
+                  <img src={sd_result.images[0]} alt={sd_result.title} />
                   <div>
-                    <p className="sd_global_header__search_result_name">{sd_res.title}</p>
-                    <p className="sd_global_header__search_result_price">{sd_currencyFormatter.format(sd_res.price)} ₽</p>
+                    <p className="sd_global_header__search_result_name">{sd_result.title}</p>
+                    <p className="sd_global_header__search_result_price">{sd_currencyFormatter.format(sd_result.price)} ₽</p>
                   </div>
                 </a>
               ))}
             </div>
-          )}
+          ) : null}
         </div>
       </div>
 
-      {/* Cart Drawer */}
-      <div 
+      <div
         className={sd_isCartOpen ? "sd_global_header__cart_overlay sd_global_header__cart_overlay--open" : "sd_global_header__cart_overlay"}
         onClick={() => sd_setIsCartOpen(false)}
       >
-        <aside className="sd_global_header__cart_panel" onClick={e => e.stopPropagation()}>
+        <aside className="sd_global_header__cart_panel" onClick={(sd_event) => sd_event.stopPropagation()}>
           <div className="sd_global_header__cart_head">
             <h3 className="sd_global_header__cart_title">корзина</h3>
-            <button className="sd_global_header__cart_close" onClick={() => sd_setIsCartOpen(false)}>×</button>
+            <button className="sd_global_header__cart_close" onClick={() => sd_setIsCartOpen(false)} aria-label="Закрыть корзину">
+              ×
+            </button>
           </div>
 
           <div className="sd_global_header__cart_list">
             {sd_cartItems.length === 0 ? (
               <p className="sd_global_header__cart_empty">в корзине пока пусто</p>
             ) : (
-              sd_cartItems.map(sd_item => (
+              sd_cartItems.map((sd_item) => (
                 <article key={sd_item.id} className={sd_removingItemIds.includes(sd_item.id) ? "sd_global_header__cart_item sd_global_header__cart_item--removing" : "sd_global_header__cart_item"}>
-                  <img src={sd_item.images[0]} alt="" className="sd_global_header__cart_item_image" />
+                  <img src={sd_item.images[0]} alt={sd_item.title} className="sd_global_header__cart_item_image" />
                   <div className="sd_global_header__cart_item_content">
                     <p className="sd_global_header__cart_item_title">{sd_item.title}</p>
                     <p className="sd_global_header__cart_item_price">{sd_currencyFormatter.format(sd_item.price)} ₽</p>
                     <div className="sd_global_header__cart_item_actions">
                       <div className="sd_global_header__qty_control">
-                        <button onClick={() => sd_handleQuantityChange(sd_item.id, -1)}>−</button>
+                        <button onClick={() => sd_handleQuantityChange(sd_item.id, -1)} aria-label="Уменьшить количество">−</button>
                         <span>{sd_item.quantity}</span>
-                        <button onClick={() => sd_handleQuantityChange(sd_item.id, 1)}>+</button>
+                        <button onClick={() => sd_handleQuantityChange(sd_item.id, 1)} aria-label="Увеличить количество">+</button>
                       </div>
                       <button className="sd_global_header__cart_remove" onClick={() => sd_handleRemoveItem(sd_item.id)}>удалить</button>
                     </div>

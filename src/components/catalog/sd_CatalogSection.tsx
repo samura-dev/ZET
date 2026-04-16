@@ -223,10 +223,10 @@ export const SdCatalogSection = (): JSX.Element => {
                           aria-label="Добавить в корзину"
                           onClick={(sd_event) => {
                             sd_event.stopPropagation();
-                            const sd_originalId = sd_product.id.includes("-") 
+                            const sd_originalId = sd_product.id.includes("-")
                               ? sd_product.id.substring(0, sd_product.id.lastIndexOf("-"))
                               : sd_product.id;
-                            const sd_originalProduct = sd_products.find(p => p.id === sd_originalId);
+                            const sd_originalProduct = sd_products.find((sd_item) => sd_item.id === sd_originalId);
                             if (sd_originalProduct) {
                               sd_addItem(sd_originalProduct);
                             }
@@ -257,4 +257,3 @@ export const SdCatalogSection = (): JSX.Element => {
     </section>
   );
 };
-

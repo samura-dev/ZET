@@ -57,7 +57,6 @@ export const SdProductPage = ({
     };
   }, [sd_product]);
 
-
   useEffect(() => {
     if (!sd_relatedEmblaApi) {
       return;
@@ -157,15 +156,13 @@ export const SdProductPage = ({
               className="sd_product__primary-button"
               type="button"
               onClick={() => {
-                if (sd_product) {
-                  sd_addItem(sd_product);
-                  sd_setCtaState("added");
-                  window.setTimeout(() => {
-                    sd_setCtaState("idle");
-                  }, 1400);
-                }
+                sd_addItem(sd_product);
+                sd_setCtaState("added");
+                window.setTimeout(() => {
+                  sd_setCtaState("idle");
+                }, 1400);
               }}
-              disabled={!sd_product || sd_product.stock === 0}
+              disabled={sd_product.stock === 0}
             >
               {sd_ctaState === "added" ? "добавлено" : "в корзину"}
             </button>
@@ -173,12 +170,10 @@ export const SdProductPage = ({
               className="sd_product__secondary-button"
               type="button"
               onClick={() => {
-                if (sd_product) {
-                  sd_addItem(sd_product);
-                  onOpenCheckout?.();
-                }
+                sd_addItem(sd_product);
+                onOpenCheckout?.();
               }}
-              disabled={!sd_product || sd_product.stock === 0}
+              disabled={sd_product.stock === 0}
             >
               купить сейчас
             </button>
@@ -236,4 +231,3 @@ export const SdProductPage = ({
     </section>
   );
 };
-

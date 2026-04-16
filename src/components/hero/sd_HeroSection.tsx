@@ -21,7 +21,7 @@ export const SdHeroSection = ({ onCheckoutOpen }: sd_HeroSectionProps): JSX.Elem
     <section className="sd_hero" aria-label="Главный экран HUSH">
       <div className="sd_hero__background_glow" aria-hidden="true" />
 
-      {/* Хедер удален, так как теперь используется SdGlobalHeader */}
+      {/* Хедер убран, так как теперь используется глобальная шапка. */}
 
       <div className="sd_hero__marquee" aria-hidden>
         <div className="sd_hero__marquee_track">
@@ -60,9 +60,9 @@ export const SdHeroSection = ({ onCheckoutOpen }: sd_HeroSectionProps): JSX.Elem
           <a className="sd_hero__button_main" href="/about">
             <span className="sd_hero__button_main_text">узнать больше</span>
           </a>
-          <button 
-            className="sd_hero__button_arrow" 
-            type="button" 
+          <button
+            className="sd_hero__button_arrow"
+            type="button"
             aria-label="Открыть корзину"
             onClick={onCheckoutOpen}
           >
