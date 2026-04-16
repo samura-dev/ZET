@@ -711,6 +711,11 @@
 	transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+.sd_hero__button_arrow_icon {
+	width: 16px;
+	height: 16px;
+}
+
 .sd_hero__actions:hover .sd_hero__button_arrow {
 	transform: translateX(10px);
 }

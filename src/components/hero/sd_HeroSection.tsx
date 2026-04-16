@@ -38,7 +38,7 @@ export const SdHeroSection = ({ onCheckoutOpen }: sd_HeroSectionProps): JSX.Elem
           <a className="sd_hero__button_main" href="/about"><span className="sd_hero__button_main_text">узнать больше</span></a>
           <button className="sd_hero__button_arrow" type="button" aria-label="Открыть корзину" onClick={onCheckoutOpen}>
             <svg className="sd_hero__button_arrow_icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-              <path d="M5 12H18.5M18.5 12L13 6.5M18.5 12L13 17.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M5 12H18.5M18.5 12L13 6.5M18.5 12L13 17.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
         </div>
