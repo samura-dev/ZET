@@ -197,17 +197,15 @@ export const SdCheckoutSection = ({ onBackHome }: sd_CheckoutSectionProps): JSX.
                 <div key={sd_item.id} className="sd_checkout__order_item">
                   <img src={sd_item.images[0]} alt={sd_item.title} />
                   <div className="sd_checkout__order_item_content">
-                    <div className="sd_checkout__order_item_top">
-                      <p>{sd_item.title}</p>
-                      <button className="sd_checkout__item_remove" type="button" onClick={() => sd_removeItem(sd_item.id)}>×</button>
-                    </div>
-                    <div className="sd_checkout__order_item_bottom">
+                    <div className="sd_checkout__order_item_row">
+                      <p className="sd_checkout__order_item_title">{sd_item.title}</p>
                       <div className="sd_checkout__quantity">
                         <button type="button" onClick={() => sd_updateQuantity(sd_item.id, Math.max(1, sd_item.quantity - 1))}>−</button>
                         <span>{sd_item.quantity}</span>
                         <button type="button" onClick={() => sd_updateQuantity(sd_item.id, sd_item.quantity + 1)}>+</button>
                       </div>
-                      <span>{sd_currencyFormatter.format(sd_item.price * sd_item.quantity)} ₽</span>
+                      <span className="sd_checkout__order_item_price">{sd_currencyFormatter.format(sd_item.price * sd_item.quantity)} ₽</span>
+                      <button className="sd_checkout__item_remove" type="button" onClick={() => sd_removeItem(sd_item.id)} aria-label={`Удалить ${sd_item.title}`}>×</button>
                     </div>
                   </div>
                 </div>
@@ -224,13 +222,13 @@ export const SdCheckoutSection = ({ onBackHome }: sd_CheckoutSectionProps): JSX.
             </div>
 
             <div className="sd_checkout__summary_row">
-              <span>товары</span>
-              <span>{sd_currencyFormatter.format(sd_subtotal)} ₽</span>
+              <span className="sd_checkout__summary_label">товары</span>
+              <span className="sd_checkout__summary_value">{sd_currencyFormatter.format(sd_subtotal)} ₽</span>
             </div>
-            {sd_appliedPromo ? <div className="sd_checkout__summary_row sd_checkout__summary_row--discount"><span>скидка</span><span>-{sd_currencyFormatter.format(sd_discountAmount)} ₽</span></div> : null}
+            {sd_appliedPromo ? <div className="sd_checkout__summary_row sd_checkout__summary_row--discount"><span className="sd_checkout__summary_label">скидка</span><span className="sd_checkout__summary_value">-{sd_currencyFormatter.format(sd_discountAmount)} ₽</span></div> : null}
             <div className="sd_checkout__summary_row">
-              <span>доставка</span>
-              <span>{sd_currencyFormatter.format(sd_shipping)} ₽</span>
+              <span className="sd_checkout__summary_label">доставка</span>
+              <span className="sd_checkout__summary_value">{sd_currencyFormatter.format(sd_shipping)} ₽</span>
             </div>
             <div className="sd_checkout__total">итого: {sd_currencyFormatter.format(sd_total)} ₽</div>
             <button className="sd_checkout__submit" type="submit" disabled={sd_items.length === 0}>подтвердить заказ</button>

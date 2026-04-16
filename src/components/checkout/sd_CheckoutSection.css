@@ -307,12 +307,35 @@
 
 .sd_checkout__order_item_content {
   flex: 1;
+  min-width: 0;
 }
 
-.sd_checkout__order_item_top {
+.sd_checkout__order_item_row {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+.sd_checkout__order_item_title {
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+  font-family: var(--sd_font_body);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.1;
+  color: #211a26;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sd_checkout__order_item_price {
+  font-family: var(--sd_font_body);
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f1925;
+  white-space: nowrap;
 }
 
 .sd_checkout__quantity {
@@ -331,6 +354,63 @@
   border: 0;
   background: #fff;
   cursor: pointer;
+}
+
+.sd_checkout__item_remove {
+  width: 28px;
+  height: 28px;
+  border: 1px solid rgb(48 35 50 / 18%);
+  border-radius: 50%;
+  background: rgb(255 255 255 / 86%);
+  color: #3f3342;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 180ms ease, border-color 180ms ease, color 180ms ease, background-color 180ms ease;
+}
+
+.sd_checkout__item_remove:hover {
+  border-color: #d986a7;
+  color: #c36385;
+  background: #fff;
+  transform: translateY(-1px);
+}
+
+.sd_checkout__item_remove:focus-visible {
+  outline: none;
+  border-color: #d986a7;
+  box-shadow: 0 0 0 3px rgb(217 134 167 / 24%);
+}
+
+.sd_checkout__summary_row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.sd_checkout__summary_label {
+  font-family: var(--sd_font_body);
+  font-size: 16px;
+  font-weight: 600;
+  color: #5b5162;
+}
+
+.sd_checkout__summary_value {
+  font-family: var(--sd_font_body);
+  font-size: 20px;
+  font-weight: 700;
+  color: #26202d;
+  white-space: nowrap;
+}
+
+.sd_checkout__summary_row--discount .sd_checkout__summary_label,
+.sd_checkout__summary_row--discount .sd_checkout__summary_value {
+  color: #b74766;
 }
 
 .sd_checkout__total {
@@ -394,6 +474,15 @@
 
   .sd_checkout__promo {
     grid-template-columns: 1fr auto;
+  }
+
+  .sd_checkout__order_item_row {
+    flex-wrap: wrap;
+  }
+
+  .sd_checkout__order_item_title {
+    flex-basis: 100%;
+    white-space: normal;
   }
 }
 
