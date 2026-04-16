@@ -164,6 +164,11 @@
   background-color: rgb(217 134 167 / 8%);
 }
 
+.sd_global_header__tool_button svg {
+  width: 22px;
+  height: 22px;
+}
+
 .sd_global_header__cart_icon_wrapper {
   position: relative;
   display: flex;
@@ -242,6 +247,32 @@
   font-size: 18px;
   color: #111;
   outline: none;
+}
+
+.sd_global_header__search_close {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgb(0 0 0 / 10%);
+  background: rgb(255 255 255 / 72%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #4b4452;
+  font-size: 22px;
+  line-height: 1;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 220ms ease, border-color 220ms ease, background-color 220ms ease, color 220ms ease;
+}
+
+.sd_global_header__search_close:hover,
+.sd_global_header__search_close:focus-visible {
+  outline: none;
+  transform: translateY(-1px);
+  border-color: #d986a7;
+  background: #fff;
+  color: #c56a8f;
 }
 
 .sd_global_header__search_results {
@@ -577,6 +608,17 @@
   .sd_global_header__tool_button {
     width: 40px;
     height: 40px;
+  }
+
+  .sd_global_header__tool_button svg {
+    width: 25px;
+    height: 25px;
+  }
+
+  .sd_global_header__search_close {
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
   }
 }
 

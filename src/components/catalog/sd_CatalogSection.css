@@ -244,7 +244,7 @@
 
 @media (max-width: 920px) {
   .sd_catalog {
-    padding: 34px var(--sd_page_gutter) 50px;
+    padding: 22px var(--sd_page_gutter) 46px;
   }
 
   .sd_catalog__tabs {
@@ -282,9 +282,13 @@
   }
 
   .sd_catalog__slide {
-    flex-basis: min(360px, 88vw);
-    min-width: min(360px, 88vw);
-    margin-right: 24px;
+    flex-basis: min(340px, 84vw);
+    min-width: min(340px, 84vw);
+    margin-right: 14px;
+  }
+
+  .sd_catalog__track {
+    padding: 6px 10px 14px;
   }
 
   .sd_catalog__card {
@@ -318,7 +322,7 @@
   }
 
   .sd_catalog__card-footer {
-    margin-left: 20px;
+    margin-left: 12px;
   }
 
   .sd_catalog__card-cta {

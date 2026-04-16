@@ -803,12 +803,12 @@
 
 	.sd_hero__info {
 		position: absolute;
-		left: var(--sd_page_gutter);
-		right: var(--sd_page_gutter);
-		bottom: 20px;
+		left: 50%;
+		right: auto;
+		bottom: 14px;
 		top: auto !important;
-		transform: none !important;
-		width: auto !important;
+		transform: translateX(-50%) !important;
+		width: min(330px, calc(100vw - (var(--sd_page_gutter) * 2)));
 		margin-top: 0;
 	}
 
