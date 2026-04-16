@@ -4,6 +4,9 @@
   --sd_font_heading: "Archivo", "Segoe UI", sans-serif;
   --sd_font_body: "Inter", "Segoe UI", sans-serif;
   --sd_page_gutter: 40px;
+  --sd_scrollbar_track: rgb(255 255 255 / 38%);
+  --sd_scrollbar_thumb: rgb(217 134 167 / 76%);
+  --sd_scrollbar_thumb_hover: rgb(201 99 139 / 88%);
   font-family: var(--sd_font_body);
   color: #111218;
   font-synthesis: none;
@@ -23,6 +26,37 @@ body,
 #root {
   margin: 0;
   min-height: 100%;
+}
+
+/* Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--sd_scrollbar_thumb) var(--sd_scrollbar_track);
+}
+
+/* Chromium / Safari / Edge */
+*::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--sd_scrollbar_track);
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgb(225 162 190 / 94%) 0%, var(--sd_scrollbar_thumb) 100%);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgb(219 145 178 / 96%) 0%, var(--sd_scrollbar_thumb_hover) 100%);
+  background-clip: content-box;
 }
 
 body {
